@@ -1,0 +1,130 @@
+page{
+    padding-bottom: 90rpx;
+}
+
+.goods_detail_wrap{
+    width: 96%;
+    margin:0 auto;
+    .detail_swipper{
+        swiper{
+            height: 70vw    ;
+            text-align: center;
+            image{
+                width: 60%;
+            }
+        }
+    }
+    
+    .overview{
+        height: 200rpx;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        .good_name{
+            flex:1;
+            font-size: 38rpx;
+            font-weight: bold;
+        }
+        .good_sales_volumn{
+            flex:1;
+            font-size: 20rpx;
+            font-weight: 100;
+        }
+        .good_buy_wrap{
+            flex:2;
+            display: flex;
+            justify-content: space-between;
+            .good_price{
+                color: red;
+                .unit{
+                    font-size: 22rpx;
+                }
+                .num{
+                    font-size: 35rpx;
+                }
+            }
+            .add_or_decrease{
+                width: 180rpx;
+                display: flex;
+                justify-content: space-around;
+                .minus{
+                    color: var(--themeColor);
+                }
+                .plus{
+                    color: var(--themeColor);
+                }
+            }
+        }
+
+        .good_detail_wrap{
+            margin-top: 50rpx;
+            border-top: 1px dotted #eeeeee;
+            .good_detail_text{
+                padding: 20rpx 0;
+                font-size: 30rpx;
+                font-weight: 600;
+                border-bottom: 1px solid #000;
+            }
+            .good_detail{
+                padding: 20rpx;
+                line-height: 50rpx;
+                text-indent: 2em;
+                font-size: 28rpx;
+                font-weight: 400;
+            }
+
+
+
+        }
+    }
+    
+    .btm_tool{
+        border-top: 1rpx solid #ccc;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 90rpx;
+        background-color: #ffffff;
+        display: flex;
+        .tool_item{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24rpx;
+            position: relative;
+            button{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+        .btn_cart{
+            flex:2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffa500;
+            color: #ffffff;
+            font-size:  30rpx;
+            font-weight: 600
+        }
+        .btn_buy{
+            flex:2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #eb4450;
+            color: #ffffff;
+            font-size:  30rpx;
+            font-weight: 600;
+        }
+    }
+}

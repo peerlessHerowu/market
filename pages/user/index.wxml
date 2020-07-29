@@ -1,0 +1,91 @@
+
+<view class="user_info_wrap">
+  <view wx:if = "{{userinfo.avatarUrl}}" class="user_img_wrap">
+      <image class="user_bg" src="{{userinfo.avatarUrl}}">
+        
+      </image>
+      <view class="user_info">
+         <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+         <view class="user_name">{{userinfo.nickName}}</view>
+      
+      </view>
+  </view>
+  <view wx:else class="user_btn">
+   <!-- <button open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">
+      登录
+    </button> -->
+    <navigator url="/pages/login/index">
+      登录
+    </navigator>
+  </view>
+</view>
+
+<view class="user_content">
+    <view class="user_main">
+      <!-- 历史足迹 -->
+      <view class="history_wrap">
+        <navigator bindtap='toCollection'>
+          <view class="his_num" >0</view>
+          <view class="his_name">收藏的商品</view>
+        </navigator>
+        <navigator>
+          <view class="his_num" wx:if="{{!userinfo._id}}">未登录</view>
+          <view class="his_num" >{{userinfo.totalCredit}}</view>
+          <view class="his_name">我的积分</view>
+        </navigator>
+        
+      </view>
+      <!-- 收货地址管理 -->
+      <view class="address_wrap" bindtap='toAddressList'>
+        <image class="address_img" src="/icons/address.png">
+        </image>
+        <text class="address_text">收货地址管理</text> 
+      </view>
+      <!-- 应用信息相关 -->
+      <view class="app_info_wrap">
+        <view class="app_info_item">
+          <image class="app_info_img" src="/icons/market.png"></image>
+          <view class="app_info_contact" bindtap='contactMarket'>
+            <text>联系超市</text>
+            <text class="">{{phoneNumber}}</text>
+          </view>
+          
+        </view>
+        <view class="app_info_item" bindtap='toFeedback'>
+          <image class="app_info_img" src="/icons/feedback.png"></image>
+          <text >意见反馈</text>
+        </view>
+        <view class="app_info_item" bindtap='toAboutUs'>
+          <image class="app_info_img" src="/icons/about.png"></image>
+          <text>关于我们</text>
+        </view>
+      </view>
+      <!-- 管理 -->
+      <!-- <button class="manage_btn" bindtap="applyFor">
+          申请成为管理员
+      </button> -->
+      <button class="manage_btn" bindtap="toManage" hidden="{{isManager===false}}">
+          商品管理
+      </button>
+      <button class="manage_btn" bindtap="toManageOrder" hidden="{{isManager===false}}">
+        订单管理
+      </button>
+      <!-- <button class="manage_btn" bindtap="manageApplyBtn" hidden="{{isSuperManager===false}}">
+        <text class="canApply" hidden="{{canApply===false}}">
+          关闭申请
+        </text>
+        <text class="canApply" hidden="{{canApply===true}}">
+          开放申请
+        </text>
+            
+      </button> -->
+      <!-- 退出登录 -->
+      <!-- <button class="logout_btn redBackground" wx:if="{{userinfo._id}}" bindtap="logout">
+         退出登录
+      </button> -->
+      
+      <!-- <button class="logout_btn" wx:else bindtap="login">
+         登录
+      </button> -->
+    </view>  
+</view>

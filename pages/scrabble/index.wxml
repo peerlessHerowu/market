@@ -1,0 +1,85 @@
+<view class=" {{scrollTop > 0 ? 'input_sort_wrap_fixed' : 'input_sort_wrap'}}">
+    <view class="sort_wrap">
+            <view class="sort">
+                
+                <view class="defaultSort" style="font-weight:{{isDefault? 500: 300}}" bindtap="defaultSort">
+                    默认排序
+                </view>
+                <view class="sortBySalesVolume" style="font-weight:{{isSortBySell? 500: 300}}" bindtap="sortBySalesVolume">
+                    销量优先
+                </view>
+                <view class="sortByPrice" style="font-weight:{{isSortByPrice? 500: 300}}" bindtap='sortByPrice'>
+                    价格
+                    <image class="sortHint" hidden="{{sort}}" src="../../icons/upbelow.png" mode="widthFix" />
+                    <image class="sortHint" hidden="{{asc}}" src="../../icons/up.png" mode="widthFix" />
+                    <image class="sortHint" hidden="{{desc}}" src="../../icons/below.png" mode="widthFix" />
+                </view>
+
+            </view>
+    </view>
+</view>
+
+<myToast class="myToast" toastValue="{{toastValue}}"></myToast>
+
+ <scroll-view scroll-y="true" hover-class="none" class="right_content">
+  
+    <navigator class="goods_group"
+    hover-class="none"
+    wx:for="{{searchResult}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="_id"
+    url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+    bindtap = 'toDetail'
+    >
+        
+        <view class="goods_list" >
+            <!-- <navigator url=""> -->
+                <view class="goods_img" wx:if='{{item.goods_icon}}'>
+                <!-- item.goods _icon -->
+                    <image mode="widthFix" src="{{item.goods_icon}}" />
+                </view>
+                
+                <view class="goods_img" wx:else>
+                <!-- item.goods _icon -->
+                    <image mode="widthFix" src="../../icons/noPicture.png" />
+                </view>
+                <view class="goods_message">
+                    <view class="goods_sales_msg">
+                        <view class="goods_name">
+                            {{item.goods_name}}
+                        </view>
+                        <view class="sales_volumn">月售  {{item.goods_sales_volumn}}</view>
+                    </view>
+                    <view class="goods_price" >
+                        <view class="price_wrap" wx:if="{{item.status === 0}}">
+                            <text class="price_units">￥</text>
+                            <text class="price_nums">{{item.goods_price}}</text>
+                        </view>
+                        <view class="price_wrap" wx:else>
+                            <text class="price_nums">{{item.goods_price}}</text>
+                            <text class="price_units">积分</text>
+
+                        </view>
+                        <!-- 绑定加入购物车事件//data-idx="{{index}}" -->
+                        <view catchtap="addShopCart" data-index="{{index}}" class="mini_img iconfont icon-SDgouwuche">
+                            <!-- <image  src="/icons/cart_o.png"></image> -->
+                        </view>
+                    </view>
+                </view>
+                                        
+            <!-- </navigator> -->
+                
+        </view>
+    </navigator>
+    <view class="loading" hidden="{{!loadMore}}">
+        <text class=" iconfont icon-kaixin1" decode="true">&nbsp;&nbsp;&nbsp;</text>
+        正在加载...</view>
+    <view class="loading" hidden="{{!loadAll}}">没有更多了~</view>
+    <view class="more_wrap"></view>
+</scroll-view>
+
+
+
+<cart cart="{{cart}}" bindsychronData="handleSychronData"></cart>
+

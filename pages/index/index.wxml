@@ -1,0 +1,85 @@
+<view class="index">
+    <view class="search">
+        <searchInput></searchInput>
+    </view>
+    <view class="detail_swipper">
+        <swiper
+        
+        autoplay="{{true}}"
+        circular="{{true}}"
+        indicator-dots="{{false}}"
+        >
+            <swiper-item
+            wx:for="{{slideshow}}"
+            wx:key="goods_id"
+            bindtap="handlePreviewImage"
+            data-url="{{item}}"
+            >
+            <image mode="widthFix" src="{{item}}"></image> 
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <view class="category_wrap">
+      <view class="category_img_name" 
+        wx:for="{{cat_name_icon}}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="this"
+        bindtap="toShowGoods"
+        data-index="{{index}}"
+        >
+          <view class="category_img">
+              <image  src="{{item.cat_icon}}" />
+          </view>
+          <view class="category_name">
+                  {{item.cat_name}}
+          </view>
+      </view>  
+      
+    </view>
+
+
+    <scroll-view class="recommand_wrap">
+      <view class="recommand_text">
+        热门推荐
+      </view>
+      <view class="recommand_list" >
+        <navigator class="recommand_item"
+        wx:for="{{recommandShow}}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="unique" style="margin-right:{{index%2===0 ? 10 : 0}}rpx;margin-top:{{index%2===0&&index>0 ? -39 : 20}}rpx"
+        url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+        >
+          <view class="goods_img" wx:if="{{item.goods_pics[0]}}" style="height:{{index === 0 ? 340 : 400}}rpx">
+            <image src="{{item.goods_pics[0]}}" />
+          </view>
+          <view class="goods_img" wx:else style="height:{{index === 0 ? 340 : 400}}rpx">
+            <image src="../../icons/noPicture.png" />
+          </view>
+          <view class="goods_name">
+            {{item.goods_name}}
+          </view>
+          <view class="goods_price_sell">
+            <view class="goods_price">
+              <text class="price_units">￥</text>
+              <text class="price_nums">{{item.goods_price}}</text>                 
+            </view>
+            <view class="goods_sell">
+              月售 {{item.goods_sales_volumn}}
+            </view>
+          </view>
+        </navigator >
+      </view>
+      <view class="loading" hidden="{{!loadMore}}">
+        <text class=" iconfont icon-kaixin1" decode="true">&nbsp;&nbsp;&nbsp;</text>
+        正在加载...</view>
+      <view class="loading" hidden="{{!loadAll}}">没有更多了~</view>
+    </scroll-view>
+
+    
+</view>
+
+
+ 

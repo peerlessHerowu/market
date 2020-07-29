@@ -1,0 +1,91 @@
+<view class="goods_detail_wrap">
+    <view class="detail_swipper">
+        <swiper
+        autoplay="{{true}}"
+        circular="{{true}}"
+        indicator-dots="{{true}}"
+        wx:if="{{goodsObj.goods_pics.length!=0}}"
+        >
+            <swiper-item
+            wx:for="{{goodsObj.goods_pics}}"
+            wx:key="goods_id"
+            bindtap="handlePreviewImage"
+            data-url="{{item}}"
+            >
+            <image mode="widthFix" src="{{item}}"></image> 
+            </swiper-item>
+        </swiper>
+        <swiper
+        autoplay="{{true}}"
+        circular="{{true}}"
+        wx:else
+
+        >
+            <swiper-item
+            bindtap="handlePreviewImage"
+            data-url="../../icons/noPicture.png"
+            >
+            <image mode="widthFix" src="../../icons/noPicture.png"></image> 
+            </swiper-item>
+        </swiper>
+    </view>
+    <myToast class="myToast" toastValue="{{toastValue}}"></myToast>
+
+    <view class="overview">
+        <view class="good_name">{{goodsObj.goods_name}}</view>
+        <view class="good_sales_volumn">月售  {{goodsObj.goods_sales_volumn}}</view>
+        <view class="good_buy_wrap">
+             <view class="good_price">
+                <text class="unit">￥</text>
+                <text class="num">{{goodsObj.goods_price}}</text>
+            </view> 
+            <view class="add_or_decrease" wx:if="{{prevPage!='pages/manage/index'}}">
+                <view class="minus iconfont icon--hao1"  bindtap="decreaseFromCart"></view>
+                <view class="goods_numbers">{{num}}</view>
+                <view class="plus iconfont icon-hao"  bindtap="addShopCart"></view>
+            </view>
+        </view>
+        <view class="good_detail_wrap">
+            <view class="good_detail_text">
+                商品详情
+            </view>
+            <view class="good_detail" wx:if="{{goodsObj.goods_detail!=''}}">
+                {{goodsObj.goods_detail}}
+                <!-- 弗哈德森就好了几个哈佛结构哈哈瑞丰坏人FDSHAFJ发生的符合国家哈佛十几个坏人回顾热官方发动机算法 -->
+            </view>
+             <view class="good_detail" wx:else>
+                暂无介绍    
+            </view>
+        </view>
+        
+
+    </view>
+
+    <cart cart="{{cart}}" bindsychronData='handleSychronData'></cart>
+  
+</view>
+
+
+  <!-- 底部工具栏 -->
+    <!-- <view class="btm_tool">
+        <view class="tool_item">
+            <view class="iconfont icon-lianxikefu"></view>
+            <view>客服</view>
+            <button open-type="contact"></button>
+        </view>
+        <view class="tool_item">
+            <view class="iconfont icon-fenxiang"></view>
+            <view>分享</view>
+            <button open-type="share"></button>
+        </view>
+        <navigator url="/pages/cart/index" open-type="switchTab" class="tool_item">
+            <view class="iconfont icon-gouwuche1"></view>
+            <view>购物车</view>
+        </navigator>
+        <view class="tool_item btn_cart">
+            加入购物车
+        </view>
+        <view class="tool_item btn_buy">
+            立即购买
+        </view>
+    </view> -->

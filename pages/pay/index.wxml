@@ -1,0 +1,166 @@
+<view class="confirm_order">
+     <!--以下为toast显示的内容-->
+    <view class="toast_content_box" wx:if="{{isShowToast}}">
+    <view class="toast_content">
+        <view class="toast_content_text">
+        {{toastText}}
+        </view>
+    </view>
+    </view>
+
+    <view class="address_time_wrap">
+        <view bindtap="chooseAddress" class="getAdress">
+            <view class="getAddressMsg" wx:if="{{chooseAddress === '请选择收获地址'}}">
+                请选择收获地址
+            </view>
+            <view class="getTheAddressMsg" wx:else>
+                <view class="detailAddrese">
+                {{chooseAddress.addr}}{{chooseAddress.title}}{{chooseAddress.address}}
+                </view>
+                <view class="someInfo">
+                    {{chooseAddress.consignee}}    {{chooseAddress.mobile}}
+                </view>
+            </view>
+            <view class="edit_address iconfont icon-youjiantou"></view>
+        </view >
+
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">请选择送达时间</view>
+            </view>
+           <view class="time_wrap">
+                <view class="weui-cell__bd">
+                     <picker class='time-picker'  value="{{defaultvalue}}" mode="multiSelector" 
+                    bindchange="bindStartMultiPickerChange" bindtap='pickerTap' 
+                    bindcolumnchange="bindMultiPickerColumnChange"range="{{multiArray}}">
+                    {{startDate}}
+                    </picker>
+                    
+                </view>
+                <view class="edit_time iconfont icon-youjiantou"></view>
+           </view>
+
+        </view>
+       
+        <!-- <view class="deliver_time">
+            <view class="time_msg">请选择送达时间</view>
+            <view class="time_wrap">
+                <view class="deliver_time_msg">约11.00送达</view>
+                <view class="edit_time iconfont icon-youjiantou"></view>
+            </view>   
+        </view> -->
+    </view>
+
+    <view class="goods_info_wrap">
+        <view class="market_address">
+            美食美客超市
+        </view>
+        <view class="goods_order_list"
+        wx:for="{{theOrder}}"
+        wx:for-item="item"
+        wx:key="unique"
+        >
+            <view class="goods_order_item">
+               <view class="goods_img" wx:if='{{item.goods_icon}}'>
+                <!-- item.goods _icon -->
+                    <image src="{{item.goods_icon}}" />
+                </view> 
+                
+                <view class="goods_img" wx:else>
+                <!-- item.goods _icon -->
+                    <image src="../../icons/noPicture.png" />
+                </view> 
+                <view class="good_name">
+                    {{item.goods_name}}
+                </view>
+                <view class="good_num">
+                    <text class="num_tag" decode="{{true}}">x&nbsp;</text>
+                    <text class="number">{{item.num}}</text>
+                </view>
+                <view class="good_totalPrice" hidden="{{item.status===1}}">
+                    <text class="price_unit">￥</text>
+                    <text class="price_num">{{item.goods_price}}</text>
+                </view>
+                <view class="good_totalPrice" hidden="{{item.status===0}}">
+                    <text class="price_num">{{item.goods_price}}</text>
+                    <text class="price_unit">积分</text>
+
+                </view>
+                
+            </view>
+        </view>
+
+        <view class="deliver_price">
+            <view class="deliver_text">
+                配送费
+                <text class="iconfont icon-wenhao" bindtap="handleQuestion"></text>
+            </view>
+            <view class="deliver_price" wx:if="{{choosed}}">
+                    <text class="price_unit">￥</text>
+                    <text class="price_num">{{freight}}</text>
+            </view>
+              <view class="deliver_price" wx:else>
+                    <text class="price_num">{{freightMsg}}</text>
+            </view>
+        </view>
+
+        <view class="goods_totalPrice_info">
+            <!-- <view class="total_wrap"> -->
+                <text decode="{{true}}" space="{{true}}" class="blank1">&nbsp;&nbsp;</text>
+                <text  decode="{{true}}" space="{{true}}" class="blank2">&nbsp;&nbsp;</text>
+                <view class="total_txt">
+                    小计
+                </view>
+                <view class="goods_totalPrice_wrap">
+                     <view class="goods_totalPrice">
+                        <text class="prices_unit">￥</text>
+                        <text class="prices_num">{{totalPrice}}</text>
+                    </view>
+                    <view class="goods_totalPrice" hidden="{{isGeneration === true}}">
+                        <text class="prices_num"> + {{totalCredit}}</text>
+                        <!-- <text class="prices_unit">积分</text> -->
+                    </view>
+                </view>
+               
+            <!-- </view> -->
+        </view>
+    </view>
+
+
+    <view class="order_remark_wrap">
+        <view class="remark_text">
+            订单备注
+        </view>
+        <view class="remark_content_wrap" bindtap='toInputRemark'>
+            <view class="remart_content">
+                {{orderRemark}}
+            </view>
+            <view class="edit_remark iconfont icon-youjiantou"></view>
+        </view>
+
+    </view>
+    <view class="bottom_txt_wrap">
+        <!-- <view class="bottom_inter"> -->
+            <view class="bottom_totalprice_wrap">
+                 <view class="bottom_totalprice">
+                    ￥
+                    <text class="bottom_total">{{totalPrice}}</text> 
+                </view>
+                <view class="bottom_totalprice" hidden="{{isGeneration === true}}">
+                    <text class="bottom_total"> +{{totalCredit}}</text>  
+                    <text class="bottom_unit">积分</text>
+                 </view>
+            </view>
+           
+            <button bindtap="confirmOrder" class="bottom_confirm">确认下单</button>
+        <!-- </view> -->
+    </view>
+
+</view>
+ <!-- <form report-submit='true' bindsubmit='getFormid'>
+        <button form-type="submit"> 获取formid</button>
+    </form>
+    <text class="">
+        formid:{{formid}}
+    </text>
+    <button bindtap="sendMsg">发送模板消息</button> -->

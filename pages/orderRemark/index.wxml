@@ -1,0 +1,25 @@
+<view class="conts">
+    <textarea class="areas" value="{{value}}" placeholder='辛苦将商品挂门把手或放前台桌上' maxlength="{{max}}" bindinput="inputs"> 
+        
+        <text class="currentWordNumber">{{currentWordNumber}}/{{max}}</text>
+    </textarea>
+</view>
+<view class="shortcut_wrap">
+    <text class="shortcut_text">快捷输入</text>
+   <view class="shortcut_content_wrap">
+        <view class="shortcut"
+        wx:for="{{shortcut}}"
+        wx:key="index"
+        wx:for-index="index"
+        wx:for-item="item"
+        >
+            <view class="shortcut_content" bindtap="shortcutInput" data-index="{{index}}">
+                {{item}}
+            </view>
+        </view>
+   </view>
+
+</view>
+<view class="complete_input">
+    <button class="complete_btn" bindtap="completeInput">完成</button>
+</view>

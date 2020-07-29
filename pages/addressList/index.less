@@ -1,0 +1,313 @@
+page{
+  background:rgba(242,242,242,1);
+  height: auto !important;
+  padding-bottom: 100rpx ;
+}
+/*page background*/
+page {
+	background: #eee;
+}
+
+/*????????*/
+.address-list {
+  width: 750rpx;
+  height:auto;
+	padding-bottom: 120rpx;
+}
+.zw{
+  width:750rpx;
+  height:12rpx;
+  background:rgba(242,242,242,1);
+}
+
+.cantChoose{
+  display: flex;
+  color: red;
+  justify-content: center;
+  background-color: white;
+ 
+}
+
+/*that means a record*/
+.item {
+  width:750rpx;
+  height:auto;
+	margin-bottom: 12rpx;
+	background: #fff;
+  position: relative;
+  .set-default{
+    width:80rpx;
+    height:80rpx;
+    position: absolute;
+    top:50%;
+    transform: translate(0,-50%);
+    icon{
+      position: absolute;
+      top:50%;
+      left:26rpx;
+      transform: translate(0,-50%);
+    }
+  }
+  .user_address_info{
+    
+    padding-left:80rpx;
+    // padding-top:50rpx;
+    display: flex;
+    align-items: center;
+    .realname{
+      flex: 2;
+      font-size:32rpx;
+      font-family:PingFangSC-Regular;
+      font-weight:400;
+      color:rgba(74,74,74,1);
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap;
+    }
+  
+    .summary{
+     
+      flex:6;
+      height: 175rpx;
+      padding-top: 30rpx;
+      .mobile{
+        padding-bottom: 5rpx;
+  
+        font-size:28rpx;
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        color:rgba(74,74,74,1);
+      } 
+      .address_wrap{
+        // height:100rpx;
+        width: 365rpx;
+        font-size:28rpx;
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        color:rgba(74,74,74,1);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; 
+        overflow: hidden;
+      }
+    }
+  }
+  .default_address{
+    width:74rpx;
+    height:36rpx;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,129,0,1);
+    line-height:36rpx;
+    position: absolute;
+    top:116rpx;
+    left:80rpx;
+    bottom:28rpx;
+    text-align: center;
+    background:rgba(255,242,228,1);
+    border-radius:6rpx;
+  }
+  
+  .edit{
+    width:auto;
+    height: 34rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(155,155,155,1);
+    line-height:34rpx;
+    position: absolute;
+    top:50%;
+    right: 24rpx;
+    transform: translate(0,-50%);
+  }
+}
+
+/*that means a record*/
+.item2 {
+  width:750rpx;
+  height:auto;
+	margin-bottom: 12rpx;
+	background: #fff;
+  position: relative;
+  font-weight: 200;
+  .set-default{
+    width:80rpx;
+    height:80rpx;
+    position: absolute;
+    top:50%;
+    transform: translate(0,-50%);
+    icon{
+      position: absolute;
+      top:50%;
+      left:26rpx;
+      transform: translate(0,-50%);
+    }
+  }
+  .user_address_info{
+    
+    padding-left:80rpx;
+    // padding-top:50rpx;
+    display: flex;
+    align-items: center;
+    .realname{
+      flex: 2;
+      font-size:32rpx;
+      font-family:PingFangSC-Regular;
+      color:rgba(74,74,74,1);
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap;
+    }
+  
+    .summary{
+     
+      flex:6;
+      height: 175rpx;
+      padding-top: 30rpx;
+      .mobile{
+        padding-bottom: 5rpx;
+  
+        font-size:28rpx;
+        font-family:PingFangSC-Regular;
+        color:rgba(74,74,74,1);
+      } 
+      .address_wrap{
+        // height:100rpx;
+        width: 365rpx;
+        font-size:28rpx;
+        font-family:PingFangSC-Regular;
+        color:rgba(74,74,74,1);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+  .default_address{
+    width:74rpx;
+    height:36rpx;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(255,129,0,1);
+    line-height:36rpx;
+    position: absolute;
+    top:116rpx;
+    left:80rpx;
+    bottom:28rpx;
+    text-align: center;
+    background:rgba(255,242,228,1);
+    border-radius:6rpx;
+  }
+  
+  .edit{
+    width:auto;
+    height: 34rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(155,155,155,1);
+    line-height:34rpx;
+    position: absolute;
+    top:50%;
+    right: 24rpx;
+    transform: translate(0,-50%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*??????*/
+.address-add {
+	position: fixed;
+	left:0;
+  bottom: 0;
+	width: 750rpx;
+  height:120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color:#4696EC;
+  border-radius:0 !important;
+  background: #fff;
+}
+.address-add::after {
+  border: none;
+}
+.button-hover{
+  background-color:#fff !important;
+}
+
+
+
+
+
+.moveable-item {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  background: red;
+}
+.movable-wrapper {
+  min-height: 180rpx;
+  background: #ddd;
+  flex: 1;
+  position: relative;
+}
+.movable-item {
+  position: relative;
+  height: 180rpx;
+  width:  750rpx;
+  background: #fff;
+  flex:1
+}
+.detele {
+  width: 200rpx;
+  height: 180rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 180rpx;
+}
+
+
+.add-address{
+  position: fixed;
+  width:300rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+
+  border-radius: 40rpx;
+  top: 90%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background-color: var(--themeColor);
+
+  color: white;
+  font-size: 38rpx;
+
+  .add_new_address{
+    margin-left: 20rpx;
+  }
+}
+
+
+
+
+
+
+

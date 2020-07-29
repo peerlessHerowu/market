@@ -1,0 +1,217 @@
+page{
+    background-color: #edece8;
+    padding-top: 0rpx;
+    padding-bottom: 130rpx;
+}
+.confirm_order{
+
+    .remart_content{
+        max-width: 400rpx;
+        
+    }
+    .goods_info_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        background-color: white;
+            // position: absolute;
+
+        .market_address{
+            font-weight: 300;
+            font-size: 30rpx;
+            padding: 20rpx  0;
+            border-bottom: 1px solid #ccc;
+        }
+        .goods_order_list{
+            .lackTheGood{
+                z-index: 500;
+                display: flex;
+                color: red;
+                justify-content: flex-end;
+                margin: 2rpx 0rpx;
+                font-size: 25rpx;
+                align-items: center;
+            }
+            padding: 4rpx 0;
+            .goods_order_item{
+                
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                align-items: center;
+                background: red;
+                .recover{
+                    transform: translate(0, 0);
+                    transition:all 0.3s linear 0.01s
+                }
+                
+                .movable-wrapper {
+                    min-height: 113rpx;
+                    background: #ddd;
+                    flex:1;
+                    position: relative;
+                    .movable-item {
+                        // margin: 0rpx 0;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        height: 113rpx;
+                        width:  674rpx;
+                        background: #fff;
+                        .good_image{
+                            width: 80rpx;
+                            height: 80rpx;
+                            image{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .good_name{
+                            margin-left: 15rpx;
+                            margin-right: 10rpx;
+                            width:  55%;
+                            display: -webkit-box;
+                            overflow: hidden;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                        }
+                        .good_num{
+                            width: 12%;
+                            display: flex;
+                            align-items: center;
+                            font-weight: 300;
+                            font-size: 20rpx;
+                            // justify-content: space-around;
+                          
+                        }
+                        .good_totalPrice{
+                            text-align: right;
+                            width: 20%;
+                            font-weight: 500;
+                            .price_unit{
+                                font-size: 20rpx;
+                            }
+                            .price_num{
+                                font-size: 35rpx;
+                                font-family: SimHei;
+        
+                            }
+                        }
+                      }
+                  }
+            }
+
+            .detele {
+                width: 120rpx;
+                height: 113rpx;
+                text-align: center;
+                color: #fff;
+                line-height: 113rpx;
+            }
+        }
+
+        .deliver_price{
+            display: flex;
+            padding: 20rpx 0;
+            align-items: center;
+            justify-content: space-between;
+            .deliver_text{
+                .iconfont{
+                    font-size: 28rpx;
+                    color: var(--themeColor);
+                }
+            }
+            .deliver_price{
+                .price_unit{
+                    font-size: 20rpx;
+                }
+                .price_num{
+                    font-size: 35rpx;
+                    font-family: SimHei;
+
+                }
+            }
+        }
+        .goods_totalPrice_info{
+            border-top: 1px solid #ccc;
+            padding: 20rpx  0;
+            display: flex;
+            align-items: center;
+            .blank1{
+                width: 1rpx;
+                flex: 1;
+            }
+            .blank2{
+                width: 1rpx;
+                flex: 12;
+            }
+            .total_txt{
+                flex: 2;
+                font-size: 25rpx;
+                font-weight: 200;
+                // margin-left: auto;
+            }
+            .goods_totalPrice_wrap{
+                flex: 1;
+                margin-left: 40rpx;
+                .prices_unit{
+                    font-size: 25rpx;                    
+                }
+                .prices_num{
+                    font-family: SimHei;
+                    font-size: 40rpx;                    
+                }
+            }
+
+        }
+    }
+
+
+   
+    .the_detail{
+        display: flex;
+        justify-content: space-between;
+        border-top: 2rpx solid #eee;
+        padding:20rpx 0 ;
+    }
+    .left_text{
+        font-family: SimHei ;
+        font-size: 30rpx;
+    }
+    .right_text{
+        font-weight: 300;
+        font-size: 26rpx;
+    }
+    .title{
+        font-size: 30rpx;
+        font-weight: 600;
+        padding:20rpx 0 ;
+
+    }
+    .deliver_msg_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        background-color: white;
+        .addr{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+    .order_msg_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        background-color: white;
+        .number_wrap{
+            display: flex;
+            .number_copy{
+                display: flex;
+                font-weight: 400;
+                color: var(--themeColor);
+            }
+        }
+    }
+   
+}

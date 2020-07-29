@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "searchInput" : "../../components/searchInput/searchInput",
+    "myToast" : "../../components/myToast/myToast",
+    "top-refresh": "../../components/top-refresh/top-refresh"
+    
+  }, 
+  "navigationBarTitleText": "商品分类",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+  
+}

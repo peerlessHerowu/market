@@ -1,0 +1,133 @@
+page{
+  background-color: #edece8;
+}
+
+// 用户头像
+.user_info_wrap{
+  height: 45vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--themeColor);
+  .user_img_wrap{
+    .user_bg{
+      height: 46vh;
+      //高斯模糊
+      filter: blur(10rpx);
+    }
+    .user_info{
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top: 20%;
+      text-align: center;
+      .user_icon{
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%;
+      }
+      .user_name{
+        color: #ffffff;
+        margin-top: 40rpx;
+        font-size: 35rpx;
+      }
+    }
+  }
+  .user_btn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30%;
+    border: 1rpx solid greenyellow;
+    color: greenyellow;
+    font-size: 50rpx;
+    padding: 30rpx;
+    border-radius: 10rpx;
+  }
+}
+
+// 用户历史
+.user_content{
+  position: relative;
+  .user_main{
+    color: #666666;
+    padding-bottom: 250rpx;
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top:-40rpx;
+
+    .history_wrap{
+      background-color: #ffffff;
+      display: flex;
+      navigator{
+        padding: 20rpx 0;
+        flex : 1;
+        text-align: center;
+        .his_num{
+          color:var(--themeColor);
+        }
+      }
+    }
+    //收货地址
+    .address_wrap{
+      margin-top: 30rpx;
+      background-color: #ffffff;
+      padding: 20rpx;
+      display: flex;
+      align-items: center;
+      .address_img{
+        margin-right: 15rpx;
+        width: 32rpx;
+        height: 32rpx;
+      }
+    }
+
+    //联系客服
+    .app_info_wrap{
+      margin-top: 30rpx;
+      background-color: #ffffff;
+      // display: flex;
+      
+      .app_info_item{
+        padding: 20rpx;
+        border-bottom: 1rpx solid #ccc;
+        display: flex;
+        // align-items: center;
+        .app_info_img{
+          flex:1;
+          margin-right: 15rpx;
+          width: 32rpx;
+          height: 32rpx;
+        }
+        text{
+          flex: 15;
+        }
+        .app_info_contact{
+          display: flex;
+          flex: 15;
+          justify-content: space-between;
+          align-items:center;
+        }
+      }
+     
+    }
+    .manage_btn{
+      width: 60%;
+      background-color: var(--themeColor);
+      color: white;
+      border-radius: 50rpx;
+      margin: 20rpx auto;
+    }
+    .logout_btn{
+      width: 60%;
+      background-color: var(--themeColor);
+      color: white;
+      border-radius: 50rpx;
+      margin: 0 auto;
+    }
+    .redBackground{
+      background-color: red;
+    }
+  }
+}

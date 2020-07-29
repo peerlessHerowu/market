@@ -1,0 +1,269 @@
+<!-- 监听自定义事件 -->
+    <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+        <block wx:if="{{tabs[0].isActive}}">
+
+            <miniTabs miniTabs="{{miniTabs}}" bindminiTabsItemChange="handleMiniTabsItemChange">
+
+                <block >
+                
+                    <view class="goods_order_list" 
+                    wx:for="{{userOrder0}}"
+                    wx:for-item="item"
+                    wx:for-index="index"
+                    wx:key="unique"
+                    >
+                        <!-- <view >
+                    {{item.diji}}
+                        </view> -->
+                        <view class="goods_order_item">
+                        
+                        <view class="user_orderMsg">
+                            <view class="consignee_addr">
+                                {{item.consigneeAddr.title}}
+                            </view>
+                            <view class="user_Msg">
+                                <view class="consignee_name">{{item.consigneeAddr.consignee}}</view>
+                                <view class="consignee_mobile" data-value="{{item.consigneeAddr.mobile}}" bindtap='call'>{{item.consigneeAddr.mobile}}</view>
+                                    
+                                    <view class="consignee_time">  {{item.startDate}}</view>
+                                    <view class="order_state" wx:if="{{item.orderStatus === 0}}">
+                                        <view class="gouIcon iconfont icon-gou"></view>
+                                        <text space="true" decode="true">
+                                            &nbsp;&nbsp;
+                                        </text>
+                                        
+                                        已修改
+                                    </view>
+                                    <view class="order_state" wx:else="{{item.orderStatus === 0}}">
+                                    </view>
+                            </view>
+                        </view>
+
+                            <navigator url="/pages/manageOrderDetail/index?index={{index}}&id=1" class="order_overview">
+                                <view class="order_info_wrap">
+                                    
+                                    <view class="good_image" wx:if='{{item.theOrder[0].goods_icon}}'>
+                                    <!-- item.goods _icon -->
+                                        <image src="{{item.theOrder[0].goods_icon}}" />
+                                    </view> 
+                                    
+                                    <view class="good_image" wx:else>
+                                    <!-- item.goods _icon -->
+                                        <image src="../../icons/noPicture.png" />
+                                    </view> 
+                                    
+                                    <view class="order_name_time">
+                                        <view class="good_name">
+                                            {{item.theOrder[0].goods_name}}等{{item.totalNum}}件商品
+                                        </view>
+                                        <view class="order_time">
+                                            {{item.orderTime}}
+                                        </view>
+                                    </view>
+                                </view>
+
+                                <view class="order_price_wrap">
+                                    <text class="unit">￥</text>
+                                    <text class="num">{{item.orderPrice}}</text>
+                                </view>
+                                <view class="order_price_wrap" hidden="{{item.orderCredit === 0}}">
+                                    <text class="num"> +{{item.orderCredit}}</text>
+                                    <!-- <text class="unit">积分</text> -->
+                                </view>
+                                
+                            </navigator>
+                            <view class="order_op">
+                                <view class="orderNumber">
+                                    <text>{{item.orderNumber}}</text>
+                                </view>
+
+                                <view class="one_more" data-index="{{index}}" bindtap="completeOrder">
+                                    完成订单
+                                </view>
+                            </view>
+                        </view>
+
+                    
+                    </view>
+
+                    <view class="someOrder">
+                        共有 {{someOrder}} 个订单待发货
+                    </view>
+                </block>
+            
+            </miniTabs>
+        </block>
+
+
+        <block wx:elif="{{tabs[1].isActive}}">
+            <view class="goods_order_list" 
+            wx:for="{{userOrder1}}"
+            wx:for-item="item"
+            wx:for-index="index"
+            wx:key="unique"
+            >
+                <view class="goods_order_item">
+                <view class="user_orderMsg">
+                    <view class="consignee_addr">
+                        {{item.consigneeAddr.title}}
+                    </view>
+                    <view class="user_Msg">
+                        <text class="consignee_name">{{item.consigneeAddr.consignee}}</text>
+                        <text class="consignee_mobile" data-value="{{item.consigneeAddr.mobile}}" bindtap='call'>{{item.consigneeAddr.mobile}}</text>
+                            
+                            <text class="consignee_time">  {{item.startDate}}</text>
+                    </view>
+                </view>
+
+                    <navigator url="/pages/manageOrderDetail/index?index={{index}}" class="order_overview">
+                        <view class="order_info_wrap">
+                                <view class="good_image" wx:if='{{item.theOrder[0].goods_icon}}'>
+                                <!-- item.goods _icon -->
+                                    <image src="{{item.theOrder[0].goods_icon}}" />
+                                </view> 
+                                
+                                <view class="good_image" wx:else>
+                                <!-- item.goods _icon -->
+                                    <image src="../../icons/noPicture.png" />
+                                </view> 
+                            <view class="order_name_time">
+                                <view class="good_name">
+                                    {{item.theOrder[0].goods_name}}等{{item.totalNum}}件商品
+                                </view>
+                                <view class="order_time">
+                                    {{item.orderTime}}
+                                </view>
+                            </view>
+                        </view>
+
+                        <view class="order_price_wrap">
+                            <text class="unit">￥</text>
+                            <text class="num">{{item.orderPrice}}</text>
+                        </view>
+                        
+                    </navigator>
+                    <view class="order_op">
+                        <view class="orderNumber">
+                            <text>{{item.orderNumber}}</text>
+                        </view>
+
+                        <view bindtap="handleLackGoods"  class="is_lack_status">
+                            缺货中……
+                        </view>
+                    
+                    </view>
+                </view>
+            </view>
+            <view class="noLack" hidden="{{haveLack}}">
+                无缺货状态的订单~
+            </view>
+        </block>
+        <block wx:elif="{{tabs[2].isActive}}">
+            <view class="weui_cell_warp">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">选择查看时间</view>
+                    </view>
+                    <view class="time_wrap">
+                            <view class="weui-cell__bd">
+                                <picker class='time-picker'  value="{{defaultvalue}}" mode="multiSelector" 
+                                bindchange="bindStartMultiPickerChange" bindtap='pickerTap' 
+                                bindcolumnchange="bindMultiPickerColumnChange"  range="{{multiArray}}">
+                                {{startDate}}
+                                </picker>
+                                
+                            </view>
+                            <view class="edit_time iconfont icon-youjiantou"></view>
+                    </view>
+
+                </view>
+            </view>
+            <scroll-view scroll-y="true" class="order_list_wrap">
+                <view class="goods_order_list" 
+                wx:for="{{userOrder}}"
+                wx:for-item="item"
+                wx:for-index="index"
+                wx:key="unique"
+                >
+                    <view class="com_order_item">
+                    
+                    <view class="user_orderMsg">
+                        <!-- <view class="consignee_addr">
+                            {{item.consigneeAddr.title}}
+                        </view> -->
+                        <view class="user_Msg">
+                            <text class="consignee_name">{{item.orderDetail.consigneeAddr.consignee}}</text>
+                            <text class="consignee_mobile" data-value="{{item.orderDetail.consigneeAddr.mobile}}" bindtap='call'>{{item.orderDetail.consigneeAddr.mobile}}</text>
+                                
+                                <text class="consignee_time">  {{item.completeTime}} 完成</text>
+                        </view>
+                    </view>
+
+                        <navigator url="/pages/manageOrderDetail/index?index={{index}}" class="order_overview">
+                            <view class="order_info_wrap">
+                                <view class="good_image" wx:if="{{item.orderDetail.theOrder[0].goods_icon}}">
+                                    <image  src="{{item.orderDetail.theOrder[0].goods_icon}}"/>
+                                </view>
+                                <view class="good_image" wx:else>
+                                    <image  src="../../icons/noPicture.png"/>
+                                </view>
+                                <view class="order_name_time">
+                                    <view class="good_name">
+                                        {{item.orderDetail.theOrder[0].goods_name}}等{{item.orderDetail.totalNum}}件商品
+                                    </view>
+                                    <view class="order_time">
+                                        {{item.orderDetail.orderTime}}
+                                    </view>
+                                </view>
+                            </view>
+
+                            <view class="order_price_wrap">
+                                <text class="unit">￥</text>
+                                <text class="num">{{item.orderDetail.orderPrice}}</text>
+                            </view>
+
+                            
+                        </navigator>
+
+                    </view>
+                </view>
+
+                <view class="loading" hidden="{{!loadMore}}">
+                    <text class="iconfont icon-kaixin1" decode="true">&nbsp;&nbsp;&nbsp;</text>
+                    正在加载...</view>
+                <view class="loading" hidden="{{!loadAll}}">没有更多了~</view>
+            </scroll-view>
+            <view class="totalMsg">
+            <view class="totalMsg_wrap">
+                    <view class="totalAmount">
+                        <view class="totalOrder">订单量: <text>{{totalOrder}}</text></view>
+                        <view class="totalSell">销量: <text>{{totalSell}}</text></view>
+                    </view>
+                    <view class="diagram">
+                        <view class="row">
+                            <view class="generalGoods">普通商品</view>
+                            <view class="CreditGoods">积分商品  </view>
+                        </view>
+                        <view class="column">
+                            <view class="total_shell_wrap">
+                                <view class="sell_text">
+                                    销量 
+                                </view>  
+                                <view class="goods_sell">{{goodTotalShell}}</view>    
+                                <view class="credit_goods_sell">{{creditTotalShell}}</view>    
+                            </view>
+                            <view class="total_income_wrap">
+                                <view class="income_text">
+                                    收入/积分
+                                </view>
+                                <view class="goods_income">{{totalIncome}}</view>
+                                <view class="goods_credit">{{totalCredit}}</view>
+                            </view>
+                        </view>
+                </view>
+                
+                
+            </view>
+            </view>
+        </block>
+    </Tabs>

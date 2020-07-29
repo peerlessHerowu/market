@@ -1,0 +1,148 @@
+page{
+    height: 100%;
+}
+.cates{
+    height: 100%;
+    .cates_container{
+        height: ~'cal( 100vh - 90rpx )';
+        display: flex;
+        .left_menu{
+            flex: 2;
+            // background-color: red;
+
+            .menu_item{
+                height: 80rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30rpx;
+            }
+            .active{
+                color: var(--themeColor);
+                // font-size: 40rpx;
+                border-left: 5rpx solid currentColor;
+            }
+        }
+        .right_content{
+            flex: 5;
+            // background-color: lawngreen;
+            .goods_group{
+                .goods_list{
+                    margin: 10rpx;
+                    display: flex;
+                    flex-wrap: wrap;
+                    // navigator{
+                    width: 100%;
+                    display: flex;
+                    .goods_img{
+                        flex:3;
+                        background-color: lawngreen;
+                        height: 180rpx;
+                    }
+                    
+                    .goods_message{
+                        // display: flex;
+                        position: relative;
+                        .goods_name{
+                            flex-wrap: wrap;
+                            font-size: 28rpx;
+                            font-weight: bold;
+                        }
+                        .sales_volumn{
+                            margin-top: 10rpx;
+                            font-size: 22rpx;
+                            color: rgb(7, 6, 6);
+                        }
+                        flex: 5;
+                        margin-left: 10rpx;
+                        .goods_price{
+                            position: absolute;
+                            display: flex;
+                            bottom: 0;
+                            color: red;
+                            .price_units{
+                                font-size: 22rpx;
+                            }
+                            .price_nums{
+                                font-size:32rpx;
+                            }
+                            .mini_img{
+                                // position:fixed;
+                                justify-content: center;
+                                margin-left: 200rpx;
+                                image{
+                                height: 36rpx;
+                                width: 36rpx;
+                                }
+                            }
+                        }
+                    }
+                    // }
+               }
+            }
+        }
+        
+    }
+}
+.cart_detail{
+    display: flex;
+    height: 120rpx;
+    justify-content: space-around;
+    position: fixed;
+    left: 30rpx;
+    right: 30rpx;
+    margin:0 auto;
+    bottom: 30rpx;
+    background-color: #8a8a8a;
+    border-radius: 66rpx;
+
+    .cart_mini{
+        display: flex;
+        align-items: center;
+        // margin-left: 45rpx;
+        .cart_img_wrap{
+            width: 66rpx;
+            height: 66rpx;  
+            image{
+                height: 100%;
+            }
+        }
+        .total_amount{
+            margin-left: 20rpx;
+            .num{
+                margin-top: -30rpx;
+                font-size: 35rpx;
+                color: white;
+            }
+            .msg{
+                color: white;
+                font-size: 22rpx;
+            }
+        }
+        
+    }
+    
+    .two_btn{
+        display: flex;
+        align-items: center;
+
+        // .cart_btn{
+        //     height: 66rpx;
+        //     border-radius: 66rpx;
+        //     background-color: var(--themeColor);
+
+        // }
+        .settle_btn{
+            height: 66rpx;
+            // margin-right: -10rpx;
+            font-size: 30rpx;
+            text-align: center;
+            line-height:66rpx;
+            vertical-align:middle;
+            border-radius: 66rpx;         
+            background-color: var(--themeColor);
+
+        }
+    }
+   
+}

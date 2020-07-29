@@ -1,0 +1,18 @@
+<view class="us_wrap">
+    <view class="market_addr_wrap market_msg_wrap">
+        <view class="market_msg_text market_addr_text">
+            超市地址 :
+        </view>
+        <view class="market_addr market_msg">
+            广东省广州市白云区大源上迳中路
+        </view>
+    </view>
+    <view class="market_phone_wrap market_msg_wrap">
+        <view class="market_phone_text market_msg_text">
+            超市电话 :
+        </view>
+        <view class="market_phone market_msg" bindtap="contactMarket">
+            {{phoneNumber}}
+        </view>
+    </view>
+</view>

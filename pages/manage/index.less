@@ -1,0 +1,612 @@
+page{
+    padding-bottom: 150rpx;
+}
+
+scroll-view ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+  }
+.manage_goods{
+    // 添加的按钮的样式
+    .add_btn{
+        display: flex;
+        margin-top: 5rpx;
+        height: 60rpx;
+        .flusPage{
+            border-radius: 66rpx;
+            flex:1; 
+            font-size: 20rpx;
+            margin-left: 10rpx;
+            margin-right: 10rpx;
+            line-height: 60rpx;
+            color :white;
+            background-color: var(--themeColor);
+        }
+        .remove_category{
+            border-radius: 66rpx;
+            flex:2;
+            font-size: 20rpx;
+            margin-left: 10rpx;
+            margin-right: 10rpx;
+            line-height: 60rpx;
+            color :white;
+            background-color: var(--themeColor);
+        }
+        .add_category{
+        // position: fixed;
+
+            border-radius: 66rpx;
+            flex:2;
+            font-size: 20rpx;
+            margin-left: 10rpx;
+            margin-right: 10rpx;
+            line-height: 60rpx;
+            color :white;
+            background-color: var(--themeColor);
+        }
+        .add_goods{
+            // position: fixed;
+            // left:50%;
+            border-radius: 66rpx;
+            flex:3;
+            font-size: 20rpx;
+            margin-left: 10rpx;
+            margin-right: 10rpx;
+            line-height: 60rpx;
+
+            color :white;
+            background-color: var(--themeColor);
+        }
+    }
+   .sort_wrap_parent{
+       height: 60rpx;
+       width: 100%;
+    //    background-color: red;
+   }
+    .sort_wrap{
+        background-color: white;
+        height: 60rpx;
+        line-height: 60rpx;
+        .sort{
+            width: 100%;
+            display: flex;
+            padding-right: 20rpx;
+            justify-content: flex-end;
+            // align-items: center;
+            // text-align: center;
+            // justify-content: space-around;
+            
+            font-size: 25rpx;
+            font-weight: 300;
+            .sortBySalesVolume{
+                flex: 4;
+                display: flex;
+                justify-content: flex-end;
+
+            }
+            .sortByPrice{
+                flex: 2;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                .sortHint{
+                    // flex: 1;
+                    width:27rpx;
+                    height: 16rpx;
+                }
+            }
+        }
+      
+        
+    }
+    .cates_container{
+        height: ~'calc( 100vh - 90rpx - 65rpx)';
+        display: flex;
+        .left_menu{
+            flex: 2;
+            // background-color: red;
+            background-color: rgb(248,248,248);
+            font-weight: 300;
+            .menu_item{
+                margin-top: 30rpx;
+                height: 50rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30rpx;
+            }
+            .active{
+                color: var(--themeColor);
+                // font-size: 40rpx;
+                border-left: 5rpx solid currentColor;
+            }
+            .more_wrap{
+                height: 60rpx;
+            }
+        }
+        .right_content{
+            flex: 5;
+            
+            // background-color: lawngreen;
+            .goods_group{
+                .goods_list{
+                    padding: 0 10rpx ;
+                    margin: 35rpx 0 ;
+                    display: flex;
+                    flex-wrap: wrap;
+                    // navigator{
+                    width: 100%;
+                    height: 180rpx;
+                    
+                    .goods_img{
+                        flex:3;
+                        // background-color: lawngreen;
+                        height: 190rpx;
+                        image{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 20rpx;
+                        }
+                    }
+                    
+                    .goods_message{
+                        flex: 5;
+                        margin-left: 10rpx;
+                        // height: 180rpx;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        // position: relative;
+                        .goods_name{
+                            flex-wrap: wrap;
+                            font-size: 28rpx;
+                            font-weight: bold;
+                            display: -webkit-box;
+                            overflow: hidden;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                        }
+                        .sales_volumn{
+                            margin-top: 10rpx;
+                            font-size: 22rpx;
+                            color: rgb(7, 6, 6);
+                        }
+                        
+                        .goods_price{
+                            // position: absolute;
+                            display: flex;
+                            // bottom: 0;
+                            justify-content:space-between;
+                            color: red;
+                            .price_wrap{
+                                // flex: 2;
+                                .price_units{
+                                    font-size: 22rpx;
+                                }
+                                
+                                .price_nums{
+                                    font-size:32rpx;
+                                }
+                            }
+
+                            .mini_img{
+                                color: var(--themeColor);
+                                height: 36rpx;
+                                width: 200rpx;
+                                display: flex;
+                                justify-content: space-around;
+
+                            }
+                        }
+                    }
+                    // }
+               }
+            }
+            .more_wrap{
+                height: 60rpx;
+            }
+        }
+        
+    }
+    
+
+    .order_manage{
+        position: fixed;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 40%;
+        bottom: 5%;
+
+        button{
+            background-color: var(--themeColor);
+            color: white;
+            border-radius: 50rpx;
+        }
+        
+    }
+
+}
+
+
+
+/* 弹框 */
+
+/*mask*/
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+// 添加新的分类
+
+/*content*/
+ 
+.drawer_box1 {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 41%;
+  left: 0;
+  z-index: 100;
+  background: #fafafa;
+  margin: -300rpx 50rpx 0 50rpx;
+  border-radius: 20rpx;
+    .drawer_title {
+        z-index: 500;
+        background-color: white;
+        padding: 15px;
+        height: 88rpx;
+        font: 20px "microsoft yahei";
+        text-align: center;
+    }
+    .drawer_content {
+        // position: relative;
+        height: 580rpx;
+        overflow-y: scroll; /*超出父盒子高度可滚动*/
+
+    .input_wrap{
+        // position: fixed;
+    //    position: absolute;
+       top:60rpx;
+       left: 0;
+       right: 0;
+        .top {
+            padding-bottom: 20rpx;
+
+            .title {
+                height:60rpx;
+                line-height: 60rpx;
+                width: 160rpx;
+                text-align: center;
+                display: inline-block;
+                font: 300 28rpx/60rpx "microsoft yahei";
+            }
+            .col-0 {
+                -webkit-box-flex: 0;
+                box-flex: 0;
+            }
+
+            input {
+                font: 24rpx "microsoft yahei";
+                background: #fff;
+                color: #000;
+            }
+            .input_base {
+                border: 2rpx solid #ccc;
+                padding-left: 10rpx;
+                margin-right: 42rpx;
+            }
+            
+            .input_h30 {
+                height: 60rpx;
+                line-height: 60rpx;
+            }
+            .input_h31 {
+                height: 200rpx;
+                line-height: 40rpx;
+            }
+            
+            .col-1 {
+                -webkit-box-flex: 1;
+                box-flex: 1;
+            }
+    
+        }
+        .grid {
+            display: -webkit-box;
+            display: box;
+        }
+        .upload_btn_wrap{
+            display: flex;
+            justify-content: center;
+            .chooseImg_btn{
+                font: 300 28rpx/60rpx "microsoft yahei";
+                background-color: var(--themeColor);
+
+            }
+            .uploadImg_btn{
+                font: 300 28rpx/60rpx "microsoft yahei";
+                background-color: var(--themeColor);
+            }
+        }
+        .preview_img{
+            margin: 28rpx auto;
+            width: 360rpx;
+            height: 360rpx;
+            image{
+                border-radius: 40rpx;
+                height: 100%;
+            }
+        }
+        .none{
+            margin: 28rpx auto;
+            width: 360rpx;
+            height: 2rpx;
+            background-color: var(--themeColor);
+        }    
+    }
+
+   
+  }
+
+  .btn_wrap{
+    padding: 20rpx;
+    border-top: 2rpx solid #e8e8ea;
+    display: flex;
+    justify-content: space-around;
+    color: var(--themeColor);;
+
+    .btn_ok {
+        font: 40rpx "microsoft yahei";
+        text-align: center;
+    }
+    .btn_cancel {
+        font: 40rpx "microsoft yahei";
+        text-align: center;
+  }
+  }
+  
+}
+
+// 添加商品
+.drawer_box2 {
+    width: 650rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    z-index: 100;
+    background: #fafafa;
+    margin: -300rpx 50rpx 0 50rpx;
+    border-radius: 10rpx;
+    .drawer_title {
+      padding: 15px;
+      font: 20px "microsoft yahei";
+      text-align: center;
+    }
+    .drawer_content {
+      position: relative;
+  
+      height: 866rpx;
+      overflow-y: scroll; /*超出父盒子高度可滚动*/
+      .seleted_wrap{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+           
+          /* 下拉内容 */
+          .select_box {
+              margin-top: 6rpx;
+              align-items: flex-end;
+              background-color: white;
+              // color: white;
+              z-index: 200;
+              overflow: hidden;
+              width: 93%;
+              text-align: center;
+  
+              // text-align: left;
+              animation: myfirst 0.5s;
+              font-size: 30rpx;
+              // overflow: hidden;
+              .select_one {
+                  // padding-left: 20rpx;
+                  // padding-top: 20rpx;
+                  width: 100%;
+                  height: 60rpx;
+                  // position: relative;
+                  line-height: 60rpx;
+                  border-bottom: 1px solid #ccc;
+              }
+          }
+          /* 下拉图标 */
+          .top-selected {
+               display: flex;
+              
+              image {
+                  height: 38rpx;
+                  width: 38rpx;
+              }
+          }
+           /* 下拉过度效果 */  
+          @keyframes myfirst {
+              from {
+              height: 0rpx;
+              }
+          
+              to {
+              height: 210rpx;
+              }
+          }
+      }   
+      .input_wrap{
+          // position: fixed;
+         position: absolute;
+         top:60rpx;
+         left: 0;
+         right: 0;
+          .top {
+              padding-top: 16rpx;
+              
+              .title {
+                  height:60rpx;
+                  line-height: 60rpx;
+                  width: 160rpx;
+                  text-align: center;
+                  display: inline-block;
+                  font: 300 28rpx/60rpx "microsoft yahei";
+              }
+              .col-0 {
+                  -webkit-box-flex: 0;
+                  box-flex: 0;
+              }
+  
+              input {
+                  font: 24rpx "microsoft yahei";
+                  background: #fff;
+                  color: #000;
+              }
+              .input_base {
+                  border: 2rpx solid #ccc;
+                  padding-left: 10rpx;
+                  margin-right: 27rpx;
+              }
+              
+              .input_h30 {
+                  height: 60rpx;
+                  line-height: 60rpx;
+              }
+              
+              .col-1 {
+                  -webkit-box-flex: 1;
+                  box-flex: 1;
+              }
+      
+          }
+          .grid {
+              display: -webkit-box;
+              display: box;
+          }
+          .upload_btn_wrap{
+            display: flex; 
+            margin-top: 20rpx;
+            justify-content: center;
+            .chooseImg_btn{
+                font: 300 28rpx/60rpx "microsoft yahei";
+                background-color: var(--themeColor);
+
+            }
+            .uploadImg_btn{
+                font: 300 28rpx/60rpx "microsoft yahei";
+                background-color: var(--themeColor);
+            }
+        }
+        .preview_img{
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            view{
+                width: 200rpx;
+                height: 200rpx;
+                position: relative;
+                margin-top :20rpx;
+                margin-left: 10rpx;
+                .isHide{
+                    visibility: hidden;
+                }
+                .notChoose{
+                    position: absolute;
+                    color: var(--themeColor);
+                    margin-top: -5rpx;
+                    margin-left: -5rpx;
+                    border-radius: 20rpx;
+                    // background-color: var(--themeColor);
+                    width: 20rpx;
+                    height: 20rpx;
+                }
+                image{
+                    
+                    //  flex: 1;
+                    border-radius: 40rpx;
+                    height: 100%;
+                }
+            }
+        }
+        .none{
+            margin: 28rpx auto;
+            width: 360rpx;
+            height: 2rpx;
+            background-color: var(--themeColor);
+        }
+         
+          
+      }
+  
+     
+    }
+  
+    .btn_wrap{
+      padding: 20rpx;
+      border-top: 2rpx solid #e8e8ea;
+      display: flex;
+      justify-content: space-around;
+      color: var(--themeColor);;
+  
+      .btn_ok {
+          font: 40rpx "microsoft yahei";
+          text-align: center;
+      }
+      .btn_cancel {
+          font: 40rpx "microsoft yahei";
+          text-align: center;
+    }
+    }
+    
+  }
+	
+/*自定义toast*/
+.toast_content_box {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  .toast_content {
+    width: 70%;
+    padding: 20rpx;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20rpx;
+    margin-top: -800rpx;
+    .toast_content_text {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        font-size: 28rpx;
+        text-align: center;
+      }
+  }
+}
+// .button-over{
+//     background-color:red
+//     /* rgb(13, 126, 187) */
+// }
+
+ 
+
+ 
+

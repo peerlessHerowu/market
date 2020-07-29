@@ -1,0 +1,25 @@
+@import "./styles/iconfont.wxss";
+@import "components/Tabs/Tabs.wxss";
+@import "components/miniTabs/miniTabs.wxss";
+@import "components/searchInput/searchInput.wxss";
+@import "components/cart/cart.wxss";
+page,view,text,swiper,swiper-item,image,navigator{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+    定义主题颜色
+ */
+ page{
+     --themeColor :rgb(18,150,219) ;
+     font-size: 28rpx;
+
+ }
+ 
+ 
+
+ image{
+     width: 100%;
+ }

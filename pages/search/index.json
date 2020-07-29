@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "Tabs" : "../../components/Tabs/Tabs",
+    "myToast" : "../../components/myToast/myToast",
+    "cart" : "../../components/cart/cart"
+
+  },
+  "navigationBarTitleText": "搜索商品",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+  
+
+}

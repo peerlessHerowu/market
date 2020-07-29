@@ -1,0 +1,15 @@
+<view class="miniTabs">
+    <view class="miniTabs_title">
+        <button class="title_item {{item.isActive ? 'active' : ''}}"
+        wx:for="{{miniTabs}}"
+        wx:key="id"
+        bindtap="handleItemTap"
+        data-index="{{index}}"        
+        >
+        {{item.value}}
+        </button>
+    </view>
+    <view class="miniTabs_content">
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "cart" : "../../components/cart/cart",
+    "myToast" : "../../components/myToast/myToast"
+
+  },
+  "navigationBarTitleText": "商品详情"
+  
+}

@@ -1,0 +1,205 @@
+<!-- <top-refresh id='tfresh'></top-refresh> -->
+
+<view class="cates {{showModalStatus?'preventTouchMove':''}}">
+    <searchInput></searchInput>
+ 
+    <myToast class="myToast" toastValue="{{toastValue}}"></myToast>
+    <view class="sort_wrap_parent">
+        <view class="sort_wrap">
+            <view class="sort">
+                <view class="sortBySalesVolume" style="font-weight:{{isSortBySell? 500: 300}}" bindtap="sortBySalesVolume">
+                    销量
+                </view>
+                <view class="sortByPrice" style="font-weight:{{isSortByPrice? 500: 300}}" bindtap='sortByPrice'>
+                    价格
+                    <image class="sortHint" hidden="{{sort}}" src="../../icons/upbelow.png" mode="widthFix" />
+                    <image class="sortHint" hidden="{{asc}}" src="../../icons/up.png" mode="widthFix" />
+                    <image class="sortHint" hidden="{{desc}}" src="../../icons/below.png" mode="widthFix" />
+                </view>
+
+            </view>
+        </view>
+    </view>
+    <view class="cates_container ">
+        <!-- 左侧菜单 -->
+        <scroll-view scroll-y class="left_menu">
+            <view
+             class="menu_item {{index===currentIndex ? 'active' : ''}}"
+             wx:for="{{leftMenuList}}"
+             wx:key="*this"
+             bindtap = "handleItemTap" 
+             data-index = "{{index}}"
+             >
+                {{item}}
+            </view>
+            <view class="more_wrap"></view>
+        </scroll-view>
+        <!-- 右侧商品内容 -->
+        <!-- bindscroll="onScroll" -->
+         <!-- bindscrolltoupper="upper" -->
+         <!-- {{scrollTop > 0 ? 'sort_wrap_fixed' :'sort_wrap'}} -->
+        <scroll-view  scroll-y
+        scroll-top="{{scrollTop}}" class="right_content">
+           <view class="">
+                
+                <navigator class="goods_group"
+                hover-class="none"
+                wx:for="{{rightContent}}"
+                wx:for-index="index"
+                wx:for-item="item"
+                wx:key="goods_id"
+                url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+                bindtap = 'toDetail'
+                >
+                
+                    <view class="goods_list">
+                        <!-- <navigator url=""> -->
+                            <view class="goods_img" wx:if='{{item.goods_icon}}'>
+                            <!-- item.goods _icon -->
+                                <image src="{{item.goods_icon}}" />
+                            </view>
+                            
+                            <view class="goods_img" wx:else>
+                            <!-- item.goods _icon -->
+                                <image src="../../icons/noPicture.png" />
+                            </view>
+                            <view class="goods_message">
+                                <view class="goods_sales_msg">
+                                    <view class="goods_name">
+                                        {{item.goods_name}}
+                                    </view>
+                                    <view class="sales_volumn">月售  {{item.goods_sales_volumn}}</view>
+                                </view>
+                                <view class="goods_price" >
+                                <view class="price_wrap" wx:if="{{item.status === 0}}">
+                                        <text class="price_units">￥</text>
+                                        <text class="price_nums">{{item.goods_price}}</text>
+                                </view>
+                                <view class="price_wrap" wx:else>
+                                        <text class="price_nums">{{item.goods_price}}</text>
+                                        <text class="price_units">积分</text>
+
+                                </view>
+                                    <!-- 绑定加入购物车事件//data-idx="{{index}}" -->
+                                    <view catchtap="addShopCart" data-index="{{index}}" class="mini_img iconfont icon-SDgouwuche">
+                                        <!-- <image  src="/icons/cart_o.png"></image> -->
+                                    </view>
+                                </view>
+                            </view>
+                                                    
+                        <!-- </navigator> -->
+                        
+                    </view>
+                </navigator>
+                <view class="more_wrap"></view>
+
+           </view>
+        </scroll-view >
+    </view>
+</view>
+ <view class="cart_detail_wrap">
+    <view class="to_scrabble_wrap" hidden="{{priceMsg==='去结算' || showModalStatus}}">
+        <view class="to_scrabble_miniWrap">
+            <view class="scrabble_msg" >
+                {{priceMsg}}
+            </view>
+            <view class="to_scrabble" bindtap='toScrabble'> 
+                去凑单 >
+            </view>
+       </view>
+        
+    </view>
+    <view bindtap="showDetail"  class="cart_detail" style="background-color:{{color}}">
+        <view class="cart_mini">
+            <view class="cart_img_wrap">
+                <image class="cart_img" src="../../icons/cart_o.png"/>
+                <view class="count" hidden="{{hideCount}}">{{totalGoods}}</view>
+            </view>
+            <view class="total_amount">
+                <view class="total_amount_wrap">
+                    <view >
+                        <text class="num" decode="{{true}}">￥{{totalPrice}}&nbsp;</text>    
+                    </view>
+                    <view hidden="{{isGeneration === true}}">
+                        <text class="num"> + {{totalCredit}}</text>
+                        <text class="total_amount_unit">积分</text>    
+                    </view>
+                </view>
+                <view>
+                <text class="msg">配送费 : 根据距离计算</text>
+                </view>
+                  
+            </view>
+        </view>
+        <view class="two_btn" >
+            <!-- <button class="cart_btn">
+                购物车
+            </button> -->
+            <button class="settle_btn" disabled="{{disable}}"  catchtap="toPay" style="font-size: {{totalPrice >= minPrice ? 35 : 20}}rpx">
+                {{priceMsg}}
+            </button>
+        </view>
+          
+</view>
+ </view>   
+ 
+<!-- 加购物车时飞的图片 -->
+<view class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;"></view>
+
+<!-- 弹出层 -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}"  class="cart_good_list" wx:if="{{showModalStatus}}">
+    <view class="to_scrabble_wrap" hidden="{{priceMsg==='去结算'}}">
+        <view class="to_scrabble_miniWrap">
+            <view class="scrabble_msg" >
+                {{priceMsg}}
+            </view>
+            <view class="to_scrabble" bindtap='toScrabble'> 
+                去凑单 >
+            </view>
+       </view>
+        
+    </view>
+    <view class="total_msg">
+        <text class="cart_goods_amount">共 {{totalGoods}} 件商品</text>
+        <text class="clear_all" bindtap="clearAll">清空</text>
+    </view>
+    <scroll-view  scroll-y="{{true}}" class="cart_wrap">
+        <view class="cart_goods_list"
+            wx:for="{{cart}}"
+            wx:for-item="item"
+            wx:key="*this"
+            data-index = "{{index}}"
+        >
+            <view class="the_goods_img" wx:if="{{item.goods_icon}}">
+                    <image src="{{item.goods_icon}}" />
+            </view>
+            <view class="the_goods_img" wx:else>
+                    <image src="../../icons/noPicture.png" />
+            </view>
+            <view class="right_two">
+                    <view class="the_goods_msg">
+                        <view class="the_goods_name">
+                            {{item.goods_name}}
+                        </view>
+                        <view class="the_goods_price" hidden="{{item.status === 1}}">
+                            ￥<text class="the_goods_priceText">{{item.goods_price}}</text>
+                        </view>
+                         <view class="the_goods_price" hidden="{{item.status === 0}}">
+                            <text class="the_goods_priceText">{{item.goods_price}}</text>积分
+                        </view>
+                    </view>
+                    <view class="add_or_decrease">
+                        <view class="minus iconfont icon--hao1" data-index="{{index}}" catchtap="decreaseGood"></view>
+                        <view class="goods_numbers">{{item.num}}</view>
+                        <view class="plus iconfont icon-hao" data-index="{{index}}" catchtap="plusGood"></view>
+                    </view>
+            </view>
+            
+        </view>
+
+        <view class="blank_bottom"></view>
+    </scroll-view>
+  
+
+</view>

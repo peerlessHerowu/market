@@ -1,0 +1,8 @@
+    <!--以下为toast显示的内容-->
+    <view class="toast_content_box" wx:if="{{toastValue.isShowToast}}">
+    <view class="toast_content">
+        <view class="toast_content_text">
+        {{toastValue.toastText}}
+        </view>
+    </view>
+    </view>

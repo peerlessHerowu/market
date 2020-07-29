@@ -1,0 +1,106 @@
+
+<view class="address-list">
+  <!-- <view class='zw'></view> -->
+    <view class="item" wx:for="{{addressList}}" wx:for-item="item" wx:key="unique">
+      <view data-index='{{index}}' class="moveable-item"  
+           
+        bindtouchstart= 'onTouchStart'
+        bindtouchmove= 'onTouchMove'
+        bindtouchend= 'onTouchEnd'
+        wx:if="{{item.status===1}}"
+      >
+
+        <movable-area class="movable-wrapper" >
+          <movable-view class='movable-item' data-index="{{index}}" bindtap="chooseTheAddress" out-of-bounds="true"  direction="horizontal" x="{{item.x}}">
+
+            <view class="set-default" data-index="{{index}}" bindtap="setDefault">
+              <icon size='36rpx' color='#1890ff' type="{{item.isDefault == true ? 'success' : 'circle'}}"/>
+            </view>
+            <!-- default -->
+            <block wx:if='{{item.isDefault == true}}'>
+              <text class='default_address'>默认</text>
+            </block>
+           <view class="user_address_info">
+              <!-- name、mobile -->
+              <view class="realname">{{item.consignee}}</view>
+
+              <!-- address -->
+              <view class="summary">
+                <view class="mobile">{{item.mobile}}</view>
+                <view class="address_wrap">
+                  {{item.addr}}{{item.title}}-{{item.address}}
+
+                </view> 
+              </view>
+           </view>
+            <!-- edit -->
+            <view class="edit" data-index="{{index}}" catchtap="edit">
+              <text>编辑 ></text>
+            </view>
+          
+          </movable-view>
+       
+        </movable-area>
+        <view class="detele" data-index="{{index}}" bindtap="delete">
+          <text>删除</text>
+        </view>
+        
+      </view>
+    </view>
+      <view class="cantChoose" hidden="{{inDistance}}">
+        以下地址超出配送范围
+      </view>
+    <view class="item2" wx:for="{{addressList}}" wx:for-item="item" wx:key="unique">
+    
+      <view data-index='{{index}}' class="moveable-item"  
+           
+        bindtouchstart= 'onTouchStart'
+        bindtouchmove= 'onTouchMove'
+        bindtouchend= 'onTouchEnd'
+        wx:if="{{item.status===0}}"
+      >
+     
+        <movable-area class="movable-wrapper"  data-index="{{index}}">
+          <movable-view class='movable-item' bindtap="cantChoose" out-of-bounds="true"  direction="horizontal" x="{{item.x}}">
+
+            <view class="set-default" data-index="{{index}}" bindtap="setDefault">
+              <icon size='36rpx' color='#1890ff' type="{{item.isDefault == true ? 'success' : 'circle'}}"/>
+            </view>
+            <!-- default -->
+            <block wx:if='{{item.isDefault == true}}'>
+              <text class='default_address'>默认</text>
+            </block>
+           <view class="user_address_info">
+              <!-- name、mobile -->
+              <view class="realname">{{item.consignee}}</view>
+
+              <!-- address -->
+              <view class="summary">
+                <view class="mobile">{{item.mobile}}</view>
+                <view class="address_wrap">
+                  {{item.addr}}{{item.title}}-{{item.address}}
+
+                </view> 
+              </view>
+           </view>
+            <!-- edit -->
+            <view class="edit" data-index="{{index}}" catchtap="edit">
+              <text>编辑 ></text>
+            </view>
+          
+          </movable-view>
+       
+        </movable-area>
+        <view class="detele" data-index="{{index}}" bindtap="delete">
+          <text>删除</text>
+        </view>
+        
+      </view>
+    </view>
+ 
+</view>
+<view class="add-address" bindtap="addAddress">
+  <view class="iconfont icon-hao1"></view>
+  <view class="add_new_address">新增地址</view> 
+</view>
+

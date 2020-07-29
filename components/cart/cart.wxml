@@ -1,0 +1,107 @@
+ <view class="cart_detail_wrap">
+     <view class="to_scrabble_wrap"  hidden="{{cart.priceMsg==='去结算' || prevPage==='pages/manage/index'}}">
+        <view class="to_scrabble_miniWrap {{currentPage==='pages/scrabble/index' ? '' : 'display_flex'}}">
+            <view class="scrabble_msg" >
+                {{cart.priceMsg}}
+            </view>
+            <view class="to_scrabble" bindtap='toScrabble' hidden="{{currentPage==='pages/scrabble/index'}}"> 
+                去凑单 >
+            </view>
+       </view>
+        
+    </view>
+    <view bindtap="showDetail" wx:if="{{prevPage!='pages/manage/index'}}" class="cart_detail" style="background-color:{{cart.color}}">
+            <view class="cart_mini">
+                <view class="cart_img_wrap">
+                    <image class="cart_img" src="../../icons/cart_o.png"/>
+                    <view class="count" hidden="{{cart.hideCount === true}}">{{cart.totalGoods}}</view>
+                </view>
+                <view class="total_amount">
+                    <view class="total_amount_wrap">
+                        <view >
+                            <text class="num" decode="{{true}}">￥{{cart.totalPrice}}&nbsp;</text>    
+                        </view>
+                        <view hidden="{{cart.isGeneration === true}}">
+                            <text class="num"> + {{cart.totalCredit}}</text>
+                            <text class="total_amount_unit">积分</text>    
+                        </view>
+                    </view>
+                    <view>
+                    <text class="msg">配送费 : 根据距离计算</text>
+                    </view>
+                    
+                </view>
+            </view>
+            <view class="two_btn" >
+                <!-- <button class="cart_btn">
+                    购物车
+                </button> -->
+                <button class="settle_btn" disabled="{{cart.disable}}"  catchtap="toPay" style="font-size: {{cart.totalPrice >= cart.minPrice ? 35 : 20}}rpx">
+                    {{cart.priceMsg}}
+                </button>
+            </view>
+            
+    </view>
+</view>
+
+    <myToast class="myToast" toastValue="{{toastValue}}"></myToast>
+
+<!-- 加购物车时飞的图片 -->
+<view class="good_box" hidden="{{cart.hide_good_box}}"  style="left: {{cart.bus_x}}px; top: {{cart.bus_y}}px;"></view>
+<!-- 弹出层 -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}"  class="cart_good_list" wx:if="{{showModalStatus}}">
+     <view class="to_scrabble_wrap" hidden="{{cart.priceMsg==='去结算'}}">
+        <view class="to_scrabble_miniWrap {{currentPage==='pages/scrabble/index' ? '' : 'display_flex'}}">
+            <view class="scrabble_msg" >
+                {{cart.priceMsg}}
+            </view>
+            <view class="to_scrabble" bindtap='toScrabble' hidden="{{currentPage==='pages/scrabble/index'}}"> 
+                去凑单 >
+            </view>
+       </view>
+        
+    </view>
+     <view class="total_msg">
+            <text class="cart_goods_amount">共 {{cart.totalGoods}} 件商品</text>
+            <text class="clear_all" bindtap="clearAll">清空</text>
+    </view>
+    <view class="cart_wrap">
+        <view class="cart_goods_list"
+            wx:for="{{cart.miniCart}}"
+            wx:for-item="item"
+            wx:key="*this"
+            data-index = "{{index}}"
+        >
+           <view class="the_goods_img" wx:if="{{item.goods_icon}}">
+                    <image src="{{item.goods_icon}}" />
+            </view>
+            <view class="the_goods_img" wx:else>
+                    <image src="../../icons/noPicture.png" />
+            </view>
+            <view class="right_two">
+                    <view class="the_goods_msg">
+                        <view class="the_goods_name">
+                            {{item.goods_name}}
+                        </view>
+                         <view class="the_goods_price" wx:if="{{item.status === 0}}">
+                            ￥<text class="the_goods_priceText">{{item.goods_price}}</text>
+                        </view>
+                         <view class="the_goods_price" wx:else>
+                            <text class="the_goods_priceText">{{item.goods_price}}</text>积分
+                        </view>
+                    </view>
+                    <view class="add_or_decrease">
+                        <view class="minus iconfont icon--hao1" data-index="{{index}}" bindtap="decreaseGood"></view>
+                        <view class="goods_numbers">{{item.num}}</view>
+                        <view class="plus iconfont icon-hao" data-index="{{index}}" bindtap="plusGood"></view>
+                    </view>
+            </view>
+            
+        </view>
+
+        <view class="blank_bottom"></view>
+    </view>
+  
+
+</view>

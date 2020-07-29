@@ -1,0 +1,172 @@
+<view class="confirm_order">
+
+    <view class="order_status_wrap">
+        <view class="status_detail" wx:if="{{orderDetail.orderStatus===1 || orderDetail.orderStatus===0}}">
+           下单成功
+       </view>
+       <view class="status_detail" wx:elif="{{orderDetail.orderStatus===2}}">
+           存在商品缺货
+       </view>
+       <view class="status_detail" wx:elif="{{orderDetail.orderStatus===3}}">
+           已完成
+       </view>
+    </view>
+
+    <view class="theOrderMsg_wrap">
+      <view class="orderMsg_wrap">
+        <view class="status_detail" wx:if="{{orderDetail.orderStatus===1 || orderDetail.orderStatus===0}}">
+            下单成功，商家正在火速派送中……
+        </view>
+       
+        <view class="status_detail" wx:elif="{{orderDetail.orderStatus===2}}">
+            亲，很抱歉，有商品缺货，需要修改！
+        </view>
+        <view class="status_detail" wx:if="{{orderDetail.orderStatus===3}}">
+            订单已完成~
+        </view>
+
+         <view class="modify_order" bindtap="handleModifyOrder" wx:if="{{orderDetail.orderStatus===2}}">
+            修改订单
+        </view>
+        <view class="modify_order" contactMarket wx:else>
+            联系超市
+        </view>
+      </view>
+
+       
+    </view>
+
+    <view class="goods_info_wrap">
+        <view class="market_address">
+            美时美客超市
+        </view>
+        <view class="goods_order_list"
+        wx:for="{{orderDetail.theOrder}}"
+        wx:for-item="item"
+        wx:key="unique"
+        >
+            <view class="iconfont icon-quehuo lackTheGood" wx:if="{{item.orderStatus===2}}">
+                <text space="true" decode="true">&nbsp;&nbsp;</text>
+                缺货中 
+            </view>
+            <view class="goods_order_item">
+                
+                <view class="good_image" wx:if="{{item.goods_icon}}">
+                    <image src = "{{item.goods_icon}}">
+                    </image>
+                </view> 
+                <view class="good_image" wx:else>
+                    <image src = "../../icons/noPicture.png">
+                    </image>
+                </view> 
+                <view class="good_name">
+                    {{item.goods_name}}
+                </view>
+                <view class="good_num">
+                    <text class="num_tag">x</text>
+                    <text class="number">{{item.num}}</text>
+                </view>
+                <view class="good_totalPrice">
+                    <text class="price_unit">￥</text>
+                    <text class="price_num">{{item.goods_price}}</text>
+                </view>
+            </view>
+        </view>
+
+        <view class="goods_totalPrice_info">
+            <!-- <view class="total_wrap"> -->
+                <text decode="{{true}}" space="{{true}}" class="blank1">&nbsp;&nbsp;</text>
+                <text  decode="{{true}}" space="{{true}}" class="blank2">&nbsp;&nbsp;</text>
+                <view class="total_txt">
+                    实付
+                </view>
+                <view class="goods_totalPrice">
+                    <text class="prices_unit">￥</text>
+                    <text class="prices_num">{{totalPrice}}</text>
+                </view>
+            <!-- </view> -->
+        </view>
+    </view>
+
+
+    <!-- 配送信息 -->
+    <view class="deliver_msg_wrap">
+        <view class="title">配送信息</view>
+        <view class="the_detail order_startDate">
+            <view class="left_text startDate_text">
+                送达时间
+            </view>
+            <view class="right_text startDate">
+                {{orderDetail.startDate}}
+            </view>
+        </view>
+
+        <view class="the_detail deliver_addr">
+            <view class="left_text addr_text">
+                收货地址
+            </view>
+            <view class="right_text addr">
+                <view >
+                {{orderDetail.consigneeAddr.title}}
+                </view>
+                <!-- <text  space="true" decode="true">\n</text> -->
+                <view >
+                    {{orderDetail.consigneeAddr.consignee}}
+                    {{orderDetail.consigneeAddr.mobile}}        
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 订单信息 -->
+    <view class="order_msg_wrap">
+        <view class="title">订单信息</view>
+
+        <!-- 订单号 -->
+        <view class="the_detail order_number">
+            <view class="left_text number_text">
+                订单号
+            </view>
+            <view class="right_text number_wrap">
+                <view class="number">
+                    {{orderDetail.orderNumber}} | 
+                </view>
+                <view class="number_copy" bindtap='copyToClickboard'>
+                    <text  space="true" decode="true">
+                        &nbsp;
+                    </text>
+                    复制
+                </view>
+            </view>
+        </view>
+        <!-- 支付方式 -->
+        <view class="the_detail order_payModel">
+            <view class="left_text model_text">
+                支付方式
+            </view>
+            <view class="right_text model" wx:if="{{orderDetail.orderPayModel===1}}">
+                上门付款
+            </view>
+        </view>
+        <!-- 下单时间 -->
+        <view class="the_detail order_time">
+            <view class="left_text time_text">
+                下单时间
+            </view>
+            <view class="right_text time">
+                {{orderDetail.orderTime}}
+            </view>
+        </view>
+        <!-- 订单备注 -->
+       <view class="the_detail order_remark">
+            <view class="left_text remark_text">
+                订单备注
+            </view>
+            <view class="right_text remark_content_wrap">
+                <view class="remart_content">
+                   {{orderDetail.orderRemark}}
+                </view>
+            </view>
+       </view>
+    </view>
+</view>

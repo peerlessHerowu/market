@@ -1,0 +1,293 @@
+page{
+    background-color: #edece8;
+    padding-bottom: 130rpx;
+}
+.confirm_order{
+    .address_time_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        background-color: white;
+        .getAdress{
+            // height: 100rpx;
+            display: flex;
+            padding: 20rpx 0;
+            margin-bottom: 30rpx ;
+
+            justify-content: space-between;
+           .getAddressMsg{
+               color: var(--themeColor);
+               font-size: 41rpx;
+               font-family: SimHei ;
+           }
+           .getTheAddressMsg{
+               .detailAddrese{
+                font-size: 41rpx;
+                font-family: SimHei ;
+           
+               }
+               .someInfo{
+                   padding-top: 20rpx;
+                font-weight: 200;
+                font-size: 28rpx;
+                font-family: SimHei ;
+                
+               }
+            }
+           .edit_address{
+                color: #ccc; 
+           }
+        }
+        .weui-cell{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .time_wrap{
+                display: flex;
+                .time-picker{
+                    color: var(--themeColor);
+                }
+                .edit_time{
+                    color: #ccc;
+
+                }
+            }
+           
+        }
+        // .deliver_time{
+        //     display: flex;
+        //     justify-content: space-between;
+        //     .time_msg{
+        //         font-family: SimHei ;
+
+        //     }
+        //     .time_wrap{
+        //         display: flex;
+        //         .deliver_time_msg{
+        //             color: var(--themeColor);
+        //          }
+        //          .edit_time{
+        //              color: #ccc;
+        //          }
+        //     }
+            
+        // }
+    }
+    .goods_info_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        background-color: white;
+        .market_address{
+            font-weight: 300;
+            font-size: 30rpx;
+            padding: 20rpx  0;
+            border-bottom: 1px solid #ccc;
+        }
+        .goods_order_list{
+            padding: 20rpx 0;
+            .goods_order_item{
+                margin: 0rpx 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .goods_img{
+                    width: 80rpx;
+                    height: 80rpx;
+                    image{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .good_name{
+                    margin-left: 15rpx;
+                    margin-right: 10rpx;
+                    width:  55%;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+                .good_num{
+                    width: 12%;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 300;
+                    font-size: 20rpx;
+                    // justify-content: space-around;
+                  
+                }
+                .good_totalPrice{
+                    text-align: right;
+                    width: 20%;
+                    font-weight: 500;
+                    .price_unit{
+                        font-size: 20rpx;
+                    }
+                    .price_num{
+                        font-size: 35rpx;
+                        font-family: SimHei;
+
+                    }
+                }
+            }
+        }
+
+        .deliver_price{
+            display: flex;
+            padding: 20rpx 0;
+            align-items: center;
+            justify-content: space-between;
+            .deliver_text{
+                .iconfont{
+                    font-size: 28rpx;
+                    color: var(--themeColor);
+                }
+            }
+            .deliver_price{
+                .price_unit{
+                    font-size: 20rpx;
+                }
+                .price_num{
+                    font-size: 35rpx;
+                    font-family: SimHei;
+
+                }
+            }
+        }
+
+        .goods_totalPrice_info{
+            border-top: 1px solid #ccc;
+            padding: 20rpx  0;
+            display: flex;
+            align-items: center;
+            .blank1{
+                width: 1rpx;
+                flex: 1;
+            }
+            .blank2{
+                width: 1rpx;
+                flex: 12;
+            }
+            .total_txt{
+                flex: 2;
+                font-size: 25rpx;
+                font-weight: 200;
+                // margin-left: auto;
+            }
+            .goods_totalPrice_wrap{
+                flex: 1;
+                text-align: right;
+                margin-left: 40rpx;
+                .prices_unit{
+                    font-size: 25rpx;                    
+                }
+                .prices_num{
+                    font-family: SimHei;
+                    font-size: 40rpx;                    
+                }
+            }
+
+        }
+    }
+
+    .order_remark_wrap{
+        width: 95%;
+        margin: 20rpx auto;
+        padding: 20rpx;
+        display: flex;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+        .remark_text{
+            font-family: SimHei;
+        }
+        .remark_content_wrap{
+            display: flex;
+            .remart_content{
+                max-width: 300rpx;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1; 
+                overflow: hidden;
+                font-weight: 300;
+                font-size: 25rpx;
+            }
+            .edit_remark{
+                color: #ccc; 
+
+            }
+
+        }
+    }
+    .bottom_txt_wrap{
+        width: 95%;
+        height: 100rpx;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 3%;
+        border-radius: 50rpx;
+        left:0;
+        right:0;
+        margin: auto;
+        padding: 0 50rpx;
+        background-color: rgb(59, 55, 55);
+        // .bottom_inter{
+            // width: 90%;
+            // margin: 0 auto;
+            .bottom_totalprice_wrap{
+                display: flex;
+                flex:2;
+                font-size: 45rpx;
+                color: white;
+                .bottom_total{
+                    font-family: SimHei;
+                }
+                .bottom_unit{
+                    font-size: 32rpx;
+                }
+            }
+            .bottom_confirm{
+                flex:1;
+                // width: 138rpx;
+                height: 70rpx;
+                background-color: rgb(61, 167, 61);
+                font-size: 38rpx;
+                line-height: 70rpx;
+                border-radius: 40rpx;
+    
+                color: white;
+            }
+        // }
+      
+
+    }
+}
+
+/*自定义toast*/
+.toast_content_box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    .toast_content {
+      width: 70%;
+      padding: 20rpx;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20rpx;
+      margin-top: -800rpx;
+      .toast_content_text {
+          height: 100%;
+          width: 100%;
+          color: #fff;
+          font-size: 28rpx;
+          text-align: center;
+        }
+    }
+  }

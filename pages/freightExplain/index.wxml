@@ -1,0 +1,15 @@
+<view class="freight_wrap">
+    <view class="explain">
+        <view class="freight_text" selectable="false" space="false" decode="false">
+            订单运费
+        </view>
+        <view  class="freight">
+            <text class="prices_unit">￥</text>
+            <text class="prices_num">{{freight}}</text>
+        </view>
+        
+    </view>
+    <view class="freight_explain">
+            距离超市直线距离不足一公里运费为0，超出一公里运费计为人民币2元
+    </view>
+</view>

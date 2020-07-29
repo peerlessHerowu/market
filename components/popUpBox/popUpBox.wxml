@@ -1,0 +1,47 @@
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+  <!--drawer content-->
+    <view class="drawer_title">添加商品</view>
+    <view class="drawer_content">
+        <!-- 下拉框 -->
+       <view class="seleted_wrap">
+             <view class='top-selected' bindtap='bindShowMsg'>
+                <view>{{goods_name}}</view>
+                <image src='../../icons/down.png'></image>
+            </view>
+            <!-- 下拉需要显示的类别 -->
+            <view class="select_box" wx:if="{{select}}">
+                <view wx:for="{{goods_category}}" wx:key="unique">
+                    <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+                </view>
+            </view>
+       </view>
+
+        <view class="input_wrap">
+            <view class="top grid">
+                <label class="title col-0">商品名称</label>
+                <input class="input_base input_h30 col-1" bindinput="goodName" name="rName" placeholder="填写商品名称"></input>
+            </view>
+            <view class="top grid">
+                <label class="title col-0">商品价格</label>
+                <input class="input_base input_h30 col-1" bindinput="goodPrice" name="mobile" placeholder="填写商品价格"></input>
+            </view>
+            <view class="top grid">
+                <label class="title col-0">数量</label>
+                <input class="input_base input_h30 col-1" bindinput="goodNum" name="phone" placeholder="填写增加的数量"></input>
+            </view>
+            <view class="top grid">
+                <label class="title col-0">商品描述</label>
+                <input class="input_base input_h30 col-1" bindinput="goodDetail" name="Email" placeholder="填写商品详细描述"></input>
+            </view>
+            <button class="uploadImg_btn" bindtap="uploadImg">上传/更新商品图片</button>
+        </view>
+
+    </view>
+    <view class="btn_wrap">
+        <view class="btn_cancel" bindtap="addGoods" data-status="cancel">取消</view>
+        <view class="btn_ok" bindtap="addGoods" data-status="confirm">确定</view>
+    </view>
+</view>

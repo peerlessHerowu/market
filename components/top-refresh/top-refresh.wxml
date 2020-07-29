@@ -1,0 +1,6 @@
+
+<block wx:if="{{toprefresh}}">
+  <view style="height:0px;text-align: center;" animation="{{animation}}">
+    <image style="width:100rpx;height:100rpx;" src='https://www.elks.org/history/images/loading.gif'></image>
+  </view>
+</block>

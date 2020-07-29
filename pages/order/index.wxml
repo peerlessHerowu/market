@@ -1,0 +1,103 @@
+<view class="noOrder" hidden="{{scopeUserInfo!=true || goods_orders.length!=0}}">
+    <navigator url="/pages/category/index" hover-class="navigator-hover" open-type="switchTab">
+        暂无订单，去看看 >>
+    </navigator>
+
+</view>
+    <view hidden="{{scopeUserInfo!=true}}">
+        <view  class="goods_order_list"
+        wx:for="{{goods_orders}}"
+        wx:for-item="item"
+        wx:for-index="index"
+        wx:key="unique"
+    >
+
+
+        <view class="goods_order_item" >
+            <view class="order_state" wx:if="{{item.orderStatus === 0}}">
+                <view class="iconfont icon-gou"></view>
+                <text space="true" decode="true">
+                    &nbsp;&nbsp;
+                </text>
+                
+                修改成功 , 派送中
+            </view>
+            <view class="order_state" wx:elif="{{item.orderStatus === 1}}">
+                <view class="iconfont icon-gou"></view>
+                <text space="true" decode="true">
+                    &nbsp;&nbsp;
+                </text>
+                
+                下单成功 , 派送中
+            </view>
+            <view class="order_state2" wx:elif="{{item.orderStatus === 2}}">
+                <view class="iconfont icon-quehuo"></view>
+                <text space="true" decode="true">
+                    &nbsp;&nbsp;
+                </text>
+                
+                缺货中
+            </view>
+            <view class="order_state" wx:elif="{{item.orderStatus === 3}}">
+                <view class="iconfont icon-songdadidian"></view>
+                <text space="true" decode="true">
+                    &nbsp;&nbsp;
+                </text>
+                已送达
+            </view>
+            <navigator url="/pages/orderDetail/index?index={{index}}" class="order_overview">
+                <view class="order_info_wrap">
+                    <view class="good_image" wx:if="{{item.theOrder[0].goods_icon}}">
+                        <image  src="{{item.theOrder[0].goods_icon}}"/>
+                    </view>
+                    <view class="good_image" wx:else>
+                        <image  src="../../icons/noPicture.png"/>
+                    </view>
+                    <view class="order_name_time">
+                        <view class="good_name">
+                            {{item.theOrder[0].goods_name}}等{{item.totalNum}}件商品
+                        </view>
+                        <view class="order_time">
+                            {{item.orderTime}}
+                        </view>
+                    </view>
+                </view>
+
+                <view class="order_price_wrap">
+                    <text class="unit">￥</text>
+                    <text class="num">{{item.orderPrice}}</text>
+                </view>
+                
+            </navigator>
+            <view class="order_op">
+                <view class="contact_maket" bindtap="contactMarket">
+                    联系超市
+                </view>
+                <view class="modify_the_order" bindtap="handleModifyOrder" data-index='{{index}}' wx:if="{{item.orderStatus===2}}">
+                    修改订单
+                </view>
+            
+                <view class="one_more" bindtap="oneMore" wx:elif="{{item.orderStatus!=2}}">
+                    再来一单
+                </view>
+                <view class="delete_order" data-index='{{index}}' bindtap="deleteOrder" style="margin-left:30rpx" hidden="{{item.orderStatus!=3}}">
+                    删除订单
+                </view>
+            </view>
+            
+            
+        </view>
+        
+    </view>
+    <view class="someOrder">
+        共 {{totalComplete}} 单已完成，{{totalDeliver}} 单派送中，<text style="color : red;">{{totalLack}} 单缺货中</text>
+    </view>
+</view>
+
+
+<view hidden="{{scopeUserInfo===true}}" class="user_btn">
+
+    <navigator url="/pages/login/index">
+    登录
+    </navigator>
+</view>

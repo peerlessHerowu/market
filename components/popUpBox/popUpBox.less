@@ -1,0 +1,155 @@
+
+/*content*/
+ 
+.drawer_box {
+    width: 650rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 45%;
+    left: 0;
+    z-index: 100;
+    background: #fafafa;
+    margin: -150px 50rpx 0 50rpx;
+    border-radius: 10rpx;
+    .drawer_title {
+      padding: 15px;
+      font: 20px "microsoft yahei";
+      text-align: center;
+    }
+    .drawer_content {
+      position: relative;
+  
+      height: 486rpx;
+      overflow-y: scroll; /*超出父盒子高度可滚动*/
+      .seleted_wrap{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+           
+          /* 下拉内容 */
+          .select_box {
+              margin-top: 6rpx;
+              align-items: flex-end;
+              background-color: white;
+              // color: white;
+              z-index: 200;
+              overflow: hidden;
+              width: 93%;
+              text-align: center;
+  
+              // text-align: left;
+              animation: myfirst 0.5s;
+              font-size: 30rpx;
+              // overflow: hidden;
+              .select_one {
+                  // padding-left: 20rpx;
+                  // padding-top: 20rpx;
+                  width: 100%;
+                  height: 60rpx;
+                  // position: relative;
+                  line-height: 60rpx;
+                  border-bottom: 1px solid #ccc;
+              }
+          }
+          /* 下拉图标 */
+          .top-selected {
+               display: flex;
+              
+              image {
+                  height: 38rpx;
+                  width: 38rpx;
+              }
+          }
+           /* 下拉过度效果 */  
+          @keyframes myfirst {
+              from {
+              height: 0rpx;
+              }
+          
+              to {
+              height: 210rpx;
+              }
+          }
+      }   
+      .input_wrap{
+          // position: fixed;
+         position: absolute;
+         top:60rpx;
+         left: 0;
+         right: 0;
+          .top {
+              padding-top: 16rpx;
+              
+              .title {
+                  height:60rpx;
+                  line-height: 60rpx;
+                  width: 160rpx;
+                  text-align: center;
+                  display: inline-block;
+                  font: 300 28rpx/60rpx "microsoft yahei";
+              }
+              .col-0 {
+                  -webkit-box-flex: 0;
+                  box-flex: 0;
+              }
+  
+              input {
+                  font: 24rpx "microsoft yahei";
+                  background: #fff;
+                  color: #000;
+              }
+              .input_base {
+                  border: 2rpx solid #ccc;
+                  padding-left: 10rpx;
+                  margin-right: 42rpx;
+              }
+              
+              .input_h30 {
+                  height: 60rpx;
+                  line-height: 60rpx;
+              }
+              
+              .col-1 {
+                  -webkit-box-flex: 1;
+                  box-flex: 1;
+              }
+      
+          }
+          .grid {
+              display: -webkit-box;
+              display: box;
+          }
+          .uploadImg_btn{
+              width: 80%;
+              display: absolute;
+              top:20rpx;
+              font: 300 28rpx/60rpx "microsoft yahei";
+              background-color: var(--themeColor);
+          }
+         
+          
+      }
+  
+     
+    }
+  
+    .btn_wrap{
+      padding: 20rpx;
+      border-top: 2rpx solid #e8e8ea;
+      display: flex;
+      justify-content: space-around;
+      color: var(--themeColor);;
+  
+      .btn_ok {
+          font: 40rpx "microsoft yahei";
+          text-align: center;
+      }
+      .btn_cancel {
+          font: 40rpx "microsoft yahei";
+          text-align: center;
+    }
+    }
+    
+  }
+  

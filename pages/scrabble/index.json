@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "Tabs" : "../../components/Tabs/Tabs",
+    "myToast" : "../../components/myToast/myToast",
+    "cart" : "../../components/cart/cart"
+
+  },
+  "navigationBarTitleText": "凑单",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+  
+
+}

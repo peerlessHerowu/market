@@ -1,0 +1,79 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/aboutUs/index",
+    "pages/manage/index",  
+    "pages/manageAddress/index", 
+    "pages/manageOrderDetail/index", 
+    "pages/addAddress/index", 
+    "pages/addressList/index", 
+    "pages/addressChoose/index", 
+    "pages/addressEdit/index",  
+    "pages/category/index",    
+    "pages/scrabble/index",    
+    "pages/category1/index",
+    "pages/goods_list/index",    
+    "pages/goods_detail/index",   
+    "pages/cart/index",
+    "pages/collect/index",  
+    "pages/order/index",  
+    "pages/orderDetail/index",   
+    "pages/search/index",
+    "pages/user/index", 
+    "pages/feedback/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index",
+    "pages/freightExplain/index",
+    "pages/orderRemark/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "美食美客超市",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [ 
+      {
+        "pagePath": "pages/index/index",
+        "text": "商品",
+        "iconPath": "icons/index.png",
+        "selectedIconPath": "icons/index_o.png"
+      }, 
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "icons/goods.png",
+        "selectedIconPath": "icons/goods_o.png"
+      },
+      {
+        "pagePath":"pages/order/index",
+        "text": "订单",
+        "iconPath": "icons/order.png",
+        "selectedIconPath": "icons/order_o.png"
+      },
+      {
+        "pagePath":  "pages/user/index",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_o.png"
+      }
+    ]
+  }, 
+  "permission":{
+    "scope.userLocation":{
+      "desc":"你的位置将于本小程序使用"
+    }
+  },
+    
+  
+  "sitemapLocation": "sitemap.json"
+}
+
+

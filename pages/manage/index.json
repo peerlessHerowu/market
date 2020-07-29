@@ -1,0 +1,9 @@
+{
+  "usingComponents": { 
+     "searchInput" : "../../components/searchInput/searchInput"
+  }, 
+  "navigationBarTitleText": "管理商品",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+  
+}

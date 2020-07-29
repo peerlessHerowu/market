@@ -1,0 +1,53 @@
+  <!--以下为toast显示的内容-->
+    <view class="toast_content_box" wx:if="{{isShowToast}}">
+      <view class="toast_content">
+          <view class="toast_content_text">
+          {{toastText}}
+          </view>
+      </view>
+    </view>
+
+<form class="save_address" bindsubmit="saveAddress">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">收货人</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{consignee}}" name="consignee" placeholder="请输入收货人姓名" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{mobile}}" name="mobile" placeholder="请输入收货人手机号" />
+      </view>
+    </view>
+  </view>
+  <!-- <view class="weui-cells__title"></view> -->
+  <view class="weui-cells weui-cells_after-title">
+    <view  class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">收货地址</view>
+      </view>
+      <view catchtap="toGetAddress" class="to_select_address">
+        <view class="weui-cell__bd">
+          <input disabled="true" class="weui-input" class="choose_msg" name="locateAddress" value="{{title}}" placeholder="请输入收货地址"/>
+        </view>
+      </view>
+     
+    </view>
+  
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">门牌号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{address}}" name="address" placeholder="例：8号楼666室" />
+      </view>
+    </view>
+  </view>
+  <button class="weui-btn"  form-type="submit">保存并使用</button>
+</form>

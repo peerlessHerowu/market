@@ -1,0 +1,1 @@
+page{background-color:#eee}.market_msg_wrap{display:flex;padding:0 20rpx ;justify-content:space-between;background-color:white;height:100rpx;line-height:100rpx;width:95%;margin:30rpx auto}.market_msg_wrap .market_msg_text{font-size:30rpx;font-weight:600}.market_msg_wrap .market_msg{font-size:28rpx;font-weight:400}

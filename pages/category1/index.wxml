@@ -1,0 +1,77 @@
+<view class="cates">
+    <searchInput></searchInput>
+
+    <view class="cates_container">
+        <!-- 左侧菜单 -->
+        <scroll-view scroll-y class="left_menu">
+            <view
+             class="menu_item {{index===currentIndex ? 'active' : ''}}"
+             wx:for="{{leftMenuList}}"
+             wx:key="*this"
+             bindtap = "handleItemTap"
+             data-index = "{{index}}"
+             >
+                {{item}}
+            </view>
+        </scroll-view>
+        <!-- 右侧商品内容 -->
+        <scroll-veiw  scroll-top="{{scrollTop}}" scroll-y class="right_content">
+            <navigator class="goods_group"
+            wx:for="{{rightContent}}"
+            wx:for-index="index"
+            wx:for-item="item"
+            wx:key="goods_id"
+            url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+            >
+                <view class="goods_list">
+                    <!-- <navigator url=""> -->
+                        <view class="goods_img">
+                        <!-- item.goods _icon -->
+                            <image mode="widthFix" src="" />
+                        </view>
+                        <view class="goods_message">
+                             <view class="goods_name">
+                                {{item.goods_name}}
+                            </view>
+                            <view class="sales_volumn">月售  {{item.goods_sales_vlolum}}</view>
+                            <view class="goods_price">
+                                <text class="price_units">￥</text>
+                                <text class="price_nums">{{item.goods_price}}</text>
+                                <view catchtap="addShopCart" class="mini_img">
+                                    <image  src="/icons/cart_o.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                                                
+                    <!-- </navigator> -->
+                      
+                </view>
+            </navigator>
+        </scroll-veiw>
+    </view>
+</view>
+ <view class="cart_detail">
+        <view class="cart_mini">
+            <view class="cart_img_wrap">
+                <image class="cart_img" src="../../icons/cart_o.png"/>
+            </view>
+            <view class="total_amount">
+                <view>
+                  <text class="num">￥100</text>    
+                </view>
+                <view>
+                <text class="msg">另需配送费费3元</text>
+                </view>
+                  
+            </view>
+        </view>
+        <view class="two_btn">
+            <!-- <button class="cart_btn">
+                购物车
+            </button> -->
+            <button class="settle_btn">
+                去结算
+            </button>
+        </view>
+          
+</view>
