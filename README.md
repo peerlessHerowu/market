@@ -13,4 +13,5 @@
 - 包括轮播图、食品分类列表和热门推荐
 - 点击热门推荐的商品将进入商品详情界面，在这里可以查看商品详情，并购买商品。
 - 如果购买价格达到起送费，则跳转至结算页面，否则可以点击‘去凑单’，凑够起送费。
-  ![IMG_0894.GIF](http://ww1.sinaimg.cn/large/006Ri855gy1ghg43e09trg30ch0m6x6s.gif)
+ ![IMG_0894.GIF](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghg43e09trg30ch0m6x6s.gif)
+
