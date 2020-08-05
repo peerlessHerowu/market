@@ -70,7 +70,7 @@
 　　3.订单状态修改为已完成  
 　　4.将用户订单信息存入商家订单表中，这样用户可以操作自己的订单比如删除等，商家需要自己有一份订单信息。
 
- ![011c032142ccea5687459902f4f7176.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgbmetnibj30yi1pcx4p.jpg)
+ ![c9fa69b2b63283dc919572aaec9961c.jpg](http://ww1.sinaimg.cn/large/006Ri855gy1ghgcgidpguj30yi1pcqbt.jpg)
 
 ## 小程序码（小程序未发布，只是体验版，申请成为体验成员我通过即可）
 ![ac9da624cbba8d37fa38b993bd1db00.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgc7cpvzkj305l05it94.jpg)
