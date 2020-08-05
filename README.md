@@ -21,4 +21,4 @@
 - 通过一个函数，利用起点、最高点和终点，计算贝塞尔曲线，显示一个点击‘+’后商品进入购物车组建的动态效果。
 - 点击购物测组件可以显示已经购买的商品详情。
 
- ![IMG_0909.GIF](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghg8h2j493g30bt0kznpf.gif)
+![IMG_0909.GIF](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghg8h2j493g30bt0kznpf.gif)
