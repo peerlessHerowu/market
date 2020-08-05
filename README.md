@@ -1,6 +1,6 @@
 # market
 
-##项目介绍
+## 项目介绍
 
 　　基于云开发的微信小程序，实现了超市商品挑选、购买、下单、积分兑换等流程，支付功能暂未实现，采用的是货到付款，购买商品时也会对商品库存进行检查。另外也集成了后台商品和订单的管理。  
 　　此项目本来针对真实情况写的，所以此项目的功能还算比较完善。（虽然后来由于种种原因没有真正上线。）　　
@@ -41,10 +41,10 @@
 - 可以对地址进行编辑、删除、新增地址
 - 在选择了地址之后，这里设定了配送费：如果距离超市直线距离不足一公里运费为0，超出一公里运费计为人民币2元。于是可以计算出总价格。
 
-![IMG_0919.GIF](http://ww1.sinaimg.cn/large/006Ri855gy1ghga3teiwig307u0dykjl.gif)
-![微信图片_20200805220650.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgaek6ggoj30yi1pcajq.jpg)
-![微信图片_202008052206501.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgael323yj30yi1pc7g4.jpg)
-![ca1e4de297058867d96994cdb2512f1.jpg](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgahfc34lj30u01hc773.jpg)
+![IMG_0919.GIF](http://ww1.sinaimg.cn/large/006Ri855gy1ghga3teiwig307u0dykjl.gif)  
+![微信图片_20200805220650.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgaek6ggoj30yi1pcajq.jpg)  
+![微信图片_202008052206501.png](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgael323yj30yi1pc7g4.jpg)  
+![ca1e4de297058867d96994cdb2512f1.jpg](http://ww1.sinaimg.cn/mw690/006Ri855gy1ghgahfc34lj30u01hc773.jpg)  
 
 ### 确认下单、订单和订单详情页
 - 订单界面的商品有三种状态：已完成、派送中、缺货中，缺货中的这个状态是后台管理员发现该商品缺货修改的，此时用户的订单界面的商品状态也会随之修改，由此提醒客户重新选购商品。这是当时针对实际需求而实现的功能。
